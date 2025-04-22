@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "Sanskrit2003";
+  src: url("/fonts/Sanskrit2003.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-sans: "Sanskrit2003", sans-serif;
+}
