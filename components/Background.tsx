@@ -19,7 +19,7 @@ export default function Background() {
   const createStars = (count: number, width: number, height: number) => {
     const newStars: Star[] = [];
     for (let i = 0; i < count; i++) {
-      const isSideParticle = i < count * 0.05; // Reduced to 5% directional particles
+      const isSideParticle = i < count * 0.1; // Reduced to 5% directional particles
       const directionType = Math.floor(Math.random() * 4); // 0=left, 1=right, 2=up, 3=down
       let speedX = 0;
       let speedY = 0;
@@ -100,7 +100,7 @@ export default function Background() {
         if (star.y > canvas.height) star.y = 0;
 
         // Twinkle effect
-        star.opacity += (Math.random() - 0.5) * 0.05;
+        star.opacity += (Math.random() - 0.5) * 0.1;
         star.opacity = Math.max(0.3, Math.min(1, star.opacity));
 
         ctx.beginPath();
