@@ -110,20 +110,22 @@ export default function Background() {
       });
 
       // Draw cursor glow effect - dimmed
-      const grad = ctx.createRadialGradient(
+      const glow = ctx.createRadialGradient(
         pointer.current.x,
         pointer.current.y,
         0,
         pointer.current.x,
         pointer.current.y,
-        80
+        120
       );
-      grad.addColorStop(0, "rgba(255, 140, 0, 0.4)");
-      grad.addColorStop(1, "rgba(255, 140, 0, 0)");
+      glow.addColorStop(0, "rgba(255, 165, 0, 0.2)"); // bright orange center
+      glow.addColorStop(0.6, "rgba(255, 165, 0, 0.1)");
+      glow.addColorStop(0.8, "rgba(255, 165, 0, 0.05)");
+      glow.addColorStop(1, "rgba(255, 165, 0, 0)");
 
       ctx.beginPath();
-      ctx.fillStyle = grad;
-      ctx.arc(pointer.current.x, pointer.current.y, 80, 0, Math.PI * 2);
+      ctx.fillStyle = glow;
+      ctx.arc(pointer.current.x, pointer.current.y, 120, 0, Math.PI * 2);
       ctx.fill();
 
       requestAnimationFrame(animate);
@@ -143,7 +145,7 @@ export default function Background() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full z-[-1]"
+      className="fixed mix-blend-screen top-0 left-0 w-full h-full z-[-1]"
     />
   );
 }
