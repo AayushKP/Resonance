@@ -100,7 +100,7 @@ export default function Background() {
         if (star.y > canvas.height) star.y = 0;
 
         // Twinkle effect
-        star.opacity += (Math.random() - 0.3) * 0.1;
+        star.opacity += (Math.random() - 0.5) * 0.1;
         star.opacity = Math.max(0.3, Math.min(1, star.opacity));
 
         ctx.beginPath();
