@@ -20,3 +20,9 @@
 .font-gothic {
   font-family: "Gothic", sans-serif;
 }
+
+@layer utilities {
+  .text-metal {
+    @apply bg-gradient-to-r from-yellow-900 via-yellow-400 to-yellow-900 text-transparent bg-clip-text;
+  }
+}
