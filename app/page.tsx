@@ -1,5 +1,5 @@
 import Background from "@/components/Background";
-import { Menu } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -9,11 +9,19 @@ export default function Home() {
       </div>
 
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2  shadow backdrop-blur-2xl h-20 w-[90%] md:w-[85%] bg-white/20 rounded-3xl px-12 py-3 flex justify-between items-center z-30">
-        <div className="flex items-baseline font-extrabold text-white text-2xl">
+        <div className="flex items-center justify-center space-x-3 font-extrabold text-white text-2xl">
+          <div>
+            <Image
+              src="/images/hitk-logo.png"
+              alt="resonance logo"
+              width={50}
+              height={50}
+            />
+          </div>
           <div>
             {" "}
             <span className="text-4xl font-sanskrit">
-              <span className="text-red-500">Reso</span>
+              <span className="text-metal">Reso</span>
               nance
             </span>
           </div>
@@ -24,23 +32,33 @@ export default function Home() {
             <div className="cursor-pointer">Gallery</div>
             <div className="cursor-pointer">Events</div>
           </div>
-          <div className="bg-red-600 text-center py-1 px-3 rounded-lg">
+          <div className="cursor-pointer bg-gradient-to-r from-yellow-800 via-yellow-400 to-yellow-900 text-center py-1 px-3 rounded-lg">
             Achievements
           </div>
         </div>
       </header>
 
-      <main className="relative z-40 flex flex-col items-center justify-center text-center text-white px-4 pt-52">
-        <h1 className="text-9xl text-red-600/80 font-gothic mb-1 tracking-wider">
+      <div className="absolute  pointer-events-none top-14 left-1/2 transform -translate-x-1/2 z-20">
+        <Image
+          className=" w-full h-auto opacity-15 object-contain"
+          src="/images/resonance.png"
+          alt="resonance logo"
+          width={450}
+          height={200}
+        />
+      </div>
+
+      <main className="z-30 flex flex-col items-center justify-center text-center text-white px-4 pt-52 xl:pt-60">
+        <h1 className="text-9xl text-metal font-gothic mb-1 tracking-widest">
           Resonance
         </h1>
-        <p className="text-3xl max-w-2xl opacity-90 font-sanskrit">
+        <p className="text-3xl max-w-2xl text-white opacity-90 font-sanskrit">
           The Official Music Club of{" "}
-          <span className=" text-3xl font-mono ">HITK</span>
+          <span className=" text-4xl font-serif ">HITK</span>
         </p>
       </main>
 
-      <footer className="absolute bottom-0 right-0 p-4 z-40">
+      <footer className="absolute bottom-0 right-0 p-4 z-30">
         <div className="flex space-x-6 items-center bg-white/20 backdrop-blur-md rounded-2xl p-3">
           <a
             href="https://www.instagram.com"
