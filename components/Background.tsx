@@ -100,7 +100,7 @@ export default function Background() {
         if (star.y > canvas.height) star.y = 0;
 
         // Twinkle effect
-        star.opacity += (Math.random() - 0.5) * 0.1;
+        star.opacity += (Math.random() - 0.3) * 0.1;
         star.opacity = Math.max(0.3, Math.min(1, star.opacity));
 
         ctx.beginPath();
@@ -110,13 +110,14 @@ export default function Background() {
       });
 
       // Draw cursor glow effect - dimmed
+      const glowRadius = window.innerWidth > 1280 ? 80 : 120;
       const glow = ctx.createRadialGradient(
         pointer.current.x,
         pointer.current.y,
         0,
         pointer.current.x,
         pointer.current.y,
-        120
+        glowRadius
       );
       glow.addColorStop(0, "rgba(255, 165, 0, 0.2)"); // bright orange center
       glow.addColorStop(0.6, "rgba(255, 165, 0, 0.1)");
@@ -145,7 +146,7 @@ export default function Background() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed mix-blend-screen top-0 left-0 w-full h-full z-[-1]"
+      className="fixed mix-blend-screen top-0 left-0 w-full h-full pointer-events-none z-[-1]"
     />
   );
 }
