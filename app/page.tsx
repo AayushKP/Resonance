@@ -1,50 +1,18 @@
 import Background from "@/components/Background";
+import Navbar from "@/components/Navbar";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="relative h-[100dvh] overflow-hidden font-sans">
-      <div className="fixed inset-0 z-[-10]">
-        <Background />
-      </div>
-
-      <header className="fixed top-6 left-1/2 transform -translate-x-1/2  shadow backdrop-blur-2xl h-20 w-[90%] md:w-[85%] bg-white/20 rounded-3xl px-12 py-3 flex justify-between items-center z-30">
-        <div className="flex items-center justify-center space-x-3 font-extrabold text-white text-2xl">
-          <div>
-            <Image
-              src="/images/hitk-logo.png"
-              alt="resonance logo"
-              width={50}
-              height={50}
-            />
-          </div>
-          <div>
-            {" "}
-            <span className="text-4xl font-sanskrit">
-              <span className="text-metal">Reso</span>
-              nance
-            </span>
-          </div>
-        </div>
-        <div className="flex justify-center items-center space-x-4 text-xl text-white font-sanskrit tracking-widest ">
-          <div className="flex space-x-4">
-            <div className="cursor-pointer">Home</div>
-            <div className="cursor-pointer">Gallery</div>
-            <div className="cursor-pointer">Events</div>
-          </div>
-          <div className="cursor-pointer bg-gradient-to-r from-yellow-800 via-yellow-400 to-yellow-900 text-center py-1 px-3 rounded-lg">
-            Achievements
-          </div>
-        </div>
-      </header>
-
       <div className="absolute  pointer-events-none top-14 left-1/2 transform -translate-x-1/2 z-20">
         <Image
-          className=" w-full h-auto opacity-15 object-contain"
+          className=" w-full h-auto object-contain"
           src="/images/resonance.png"
           alt="resonance logo"
           width={450}
           height={200}
+          style={{ opacity: 0.18 }}
         />
       </div>
 
