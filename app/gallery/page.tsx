@@ -56,7 +56,7 @@ export default function Gallery() {
   // Skeleton component
   const Skeleton = () => (
     <div className="h-[100dvh] w-full pt-32 pb-8 relative">
-      <div className="text-center text-6xl text-white font-sanskrit mb-12 z-30 relative">
+      <div className="text-center text-6xl text-white font-sanskrit mb-6 z-30 relative">
         GALLERY
       </div>
 
@@ -97,12 +97,11 @@ export default function Gallery() {
         <Skeleton />
       ) : (
         <div className="h-[100dvh] w-full pt-32 pb-8 relative">
-          <div className="text-center text-6xl text-white font-sanskrit mb-12 z-30 relative">
+          <div className="text-center text-6xl text-white font-sanskrit mb-6 z-30 relative">
             GALLERY
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 md:px-8 z-30 relative">
-            {/* Left Column */}
             <div className="flex flex-col gap-4">
               {leftColumn.map((img) => (
                 <div
