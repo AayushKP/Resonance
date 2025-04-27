@@ -36,15 +36,24 @@ export default function Gallery() {
     fetchImages();
   }, []);
 
-  const verticalImages = images.filter((img) => img.height > img.width);
-  const horizontalImages = images.filter((img) => img.width >= img.height);
+  // Distribute images to 3 columns based on height
+  const columns = [[], [], []] as CloudinaryImage[][];
+  const columnHeights = [0, 0, 0];
 
-  const splitIndex = Math.ceil(verticalImages.length / 2);
-  const leftColumn = verticalImages.slice(0, splitIndex);
-  const rightColumn = verticalImages.slice(splitIndex);
+  images.forEach((img) => {
+    // Find the column with the minimum height
+    const smallestColumnIndex = columnHeights.indexOf(
+      Math.min(...columnHeights)
+    );
+    columns[smallestColumnIndex].push(img);
+    // Assume height-to-width ratio for rough height estimation
+    columnHeights[smallestColumnIndex] += img.height / img.width;
+  });
+
+  const [leftColumn, middleColumn, rightColumn] = columns;
 
   return (
-    <div className="h-[100dvvh] w-full pt-32 pb-8 relative">
+    <div className="h-auto w-full pt-32 pb-8 relative">
       <div className="text-center text-6xl text-white font-sanskrit mb-12 z-30 relative">
         GALLERY
       </div>
@@ -60,7 +69,7 @@ export default function Gallery() {
           {leftColumn.map((img) => (
             <div
               key={img.asset_id}
-              className="relative w-full h-auto rounded-lg overflow-hidden z-30"
+              className="relative w-full rounded-lg overflow-hidden z-30"
             >
               <Image
                 src={img.secure_url}
@@ -76,10 +85,10 @@ export default function Gallery() {
         </div>
 
         <div className="flex flex-col gap-4">
-          {horizontalImages.map((img) => (
+          {middleColumn.map((img) => (
             <div
               key={img.asset_id}
-              className="relative w-full h-auto rounded-lg overflow-hidden z-30"
+              className="relative w-full rounded-lg overflow-hidden z-30"
             >
               <Image
                 src={img.secure_url}
@@ -94,12 +103,11 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* Right column (verticals) */}
         <div className="flex flex-col gap-4">
           {rightColumn.map((img) => (
             <div
               key={img.asset_id}
-              className="relative w-full h-auto rounded-lg overflow-hidden z-30"
+              className="relative w-full rounded-lg overflow-hidden z-30"
             >
               <Image
                 src={img.secure_url}
