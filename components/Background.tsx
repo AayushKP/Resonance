@@ -83,7 +83,7 @@ export default function Background() {
         canvas.height / 2,
         Math.max(canvas.width, canvas.height) / 2
       );
-      nebulaGradient.addColorStop(0, "rgba(128, 0, 128, 0.08)");
+      nebulaGradient.addColorStop(0, "rgba(256, 215, 0, 0.06)");
       nebulaGradient.addColorStop(1, "rgba(0, 0, 0, 0)");
 
       ctx.fillStyle = nebulaGradient;
