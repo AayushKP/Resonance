@@ -6,12 +6,13 @@ export default function Home() {
     <div className="relative min-h-screen overflow-hidden font-sans">
       <div className="absolute  pointer-events-none top-14 left-1/2 transform -translate-x-1/2 z-20">
         <Image
+          priority
           className=" w-full h-auto object-contain"
           src="/images/resonance.png"
           alt="resonance logo"
           width={450}
           height={200}
-          style={{ opacity: 0.18 }}
+          style={{ opacity: 0.15 }}
         />
       </div>
 
@@ -20,7 +21,7 @@ export default function Home() {
           <h1 className="text-9xl text-metal font-gothic mb-1 tracking-widest">
             Resonance
           </h1>
-          <p className="text-3xl max-w-2xl text-white opacity-90 font-sanskrit">
+          <p className="text-4xl max-w-2xl text-white opacity-90 font-sanskrit">
             The Official Music Club of{" "}
             <span className=" text-4xl font-serif ">HITK</span>
           </p>
@@ -30,14 +31,14 @@ export default function Home() {
           <ScrollingImageRows />
         </section>
 
-        <section className="mt-52 ">
+        <section className="mt-52 px-20 ">
           <div className="text-center">
             <h2 className="text-8xl font-sanskrit mb-4">
               What is <span className="text-metal">Resonance</span> ? :
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 items-center gap-8">
+          <div className="grid grid-cols-2 items-center gap-2">
             <div className="">
               <Image
                 className="w-[500px]"
@@ -50,14 +51,13 @@ export default function Home() {
             <div>
               <p className="text-2xl font-tagesschrift text-left text-white leading-relaxed">
                 Resonance is not just another college club - it is a collective
-                of excellence,a crucible for talent. This is not a place where
-                music is taught from scratch;rather,it is a place where musical
-                excellence is cultivated, celebrated, and pushed to greater
-                heights. Resonance has earned its stature through consistent
-                victories acrossthe most prestigious stages-IIT Kharagpur,CNMC
-                AGON,Jadavpur Sanskriti,and many more. We've been led by
-                coordinators and seniors who are now active professionals in
-                theindustry,collaborating with stalwarts.
+                of excellence,a crucible for talent. This is a place where
+                musical excellence is cultivated, celebrated, and pushed to
+                greater heights. Resonance has earned it&#39;s stature through
+                consistent victories across the most prestigious stages- IIT
+                Kharagpur,CNMC AGON, Jadavpur Sanskriti, and many more. We've
+                been led by coordinators and seniors who are now active
+                professionals in theindustry,collaborating with stalwarts.
               </p>
             </div>
           </div>
