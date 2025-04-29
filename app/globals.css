@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap");
 @import "tailwindcss";
 
 @font-face {
@@ -25,4 +26,10 @@
   .text-metal {
     @apply bg-gradient-to-r from-yellow-800 via-yellow-400 to-yellow-800 text-transparent bg-clip-text;
   }
+}
+
+.font-tagesschrift {
+  font-family: "Tagesschrift", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
