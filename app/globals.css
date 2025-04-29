@@ -1,11 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap");
 @import "tailwindcss";
 
+html {
+  font-display: swap;
+}
+
 @font-face {
   font-family: "Sanskrit";
   src: url("/fonts/Sanskrit/sansk.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -13,6 +18,7 @@
   src: url("/fonts/Gothic/Gothic.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 .font-sanskrit {
