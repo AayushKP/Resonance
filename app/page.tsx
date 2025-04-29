@@ -1,10 +1,9 @@
-import Background from "@/components/Background";
-import Navbar from "@/components/Navbar";
+import ScrollingImageRows from "@/components/ScrollImageGrid";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="relative h-[100dvh] overflow-hidden font-sans">
+    <div className="relative min-h-screen overflow-hidden font-sans">
       <div className="absolute  pointer-events-none top-14 left-1/2 transform -translate-x-1/2 z-20">
         <Image
           className=" w-full h-auto object-contain"
@@ -17,13 +16,56 @@ export default function Home() {
       </div>
 
       <main className="z-30 flex flex-col items-center justify-center text-center text-white px-4 pt-52 xl:pt-60">
-        <h1 className="text-9xl text-metal font-gothic mb-1 tracking-widest">
-          Resonance
-        </h1>
-        <p className="text-3xl max-w-2xl text-white opacity-90 font-sanskrit">
-          The Official Music Club of{" "}
-          <span className=" text-4xl font-serif ">HITK</span>
-        </p>
+        <section>
+          <h1 className="text-9xl text-metal font-gothic mb-1 tracking-widest">
+            Resonance
+          </h1>
+          <p className="text-3xl max-w-2xl text-white opacity-90 font-sanskrit">
+            The Official Music Club of{" "}
+            <span className=" text-4xl font-serif ">HITK</span>
+          </p>
+        </section>
+
+        <section className="mt-52">
+          <ScrollingImageRows />
+        </section>
+
+        <section className="mt-52 ">
+          <div className="text-center">
+            <h2 className="text-8xl font-sanskrit mb-4">
+              What is <span className="text-metal">Resonance</span> ? :
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 items-center gap-8">
+            <div className="">
+              <Image
+                className="w-[500px]"
+                src="/images/resonance.png"
+                alt="resonance logo"
+                width={300}
+                height={300}
+              />
+            </div>
+            <div>
+              <p className="text-2xl font-tagesschrift text-left text-white leading-relaxed">
+                Resonance is not just another college club - it is a collective
+                of excellence,a crucible for talent. This is not a place where
+                music is taught from scratch;rather,it is a place where musical
+                excellence is cultivated, celebrated, and pushed to greater
+                heights. Resonance has earned its stature through consistent
+                victories acrossthe most prestigious stages-IIT Kharagpur,CNMC
+                AGON,Jadavpur Sanskriti,and many more. We've been led by
+                coordinators and seniors who are now active professionals in
+                theindustry,collaborating with stalwarts.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-30 border border-red-800 text-5xl font-sanskrit">
+          CO-ORDINATORS
+        </section>
       </main>
 
       <footer className="absolute bottom-0 right-0 p-4 z-30">
