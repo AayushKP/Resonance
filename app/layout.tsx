@@ -36,8 +36,10 @@ export default function RootLayout({
         <div className="fixed inset-0 z-[-10]">
           <Background />
         </div>
-        <Navbar />
-        {children}
+        <div className="">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
