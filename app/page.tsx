@@ -27,10 +27,6 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="mt-52">
-          <ScrollingImageRows />
-        </section>
-
         <section className="mt-52 px-20 ">
           <div className="text-center">
             <h2 className="text-8xl font-sanskrit mb-4">
@@ -63,8 +59,40 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-30 border border-red-800 text-5xl font-sanskrit">
+        <section className="mt-10">
+          <ScrollingImageRows />
+        </section>
+
+        <section className="mt-30 border border-red-800 text-5xl font-sanskrit w-full px-20">
           CO-ORDINATORS
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex justify-center gap-10">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={`r1-${i}`}
+                  className="w-52 h-52 rounded-full bg-blue-500"
+                />
+              ))}
+            </div>
+
+            <div className="flex justify-center gap-10">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <div
+                  key={`r2-${i}`}
+                  className="w-52 h-52 rounded-full bg-green-500"
+                />
+              ))}
+            </div>
+
+            <div className="flex justify-center gap-10">
+              {Array.from({ length: 2 }).map((_, i) => (
+                <div
+                  key={`r3-${i}`}
+                  className="w-52 h-52 rounded-full bg-red-500"
+                />
+              ))}
+            </div>
+          </div>
         </section>
       </main>
 
