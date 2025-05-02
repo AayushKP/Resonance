@@ -40,7 +40,7 @@ export default function Gallery() {
   // Skeleton component
   const Skeleton = () => (
     <div className="h-[100dvh] w-full pt-32 pb-8 relative">
-      <div className="text-center text-6xl text-white font-sanskrit mb-6 z-30 relative">
+      <div className="text-center text-4xl text-white font-cinzel-decorative mb-6 z-30 relative">
         GALLERY
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 md:px-8 z-30 relative">
@@ -92,7 +92,7 @@ export default function Gallery() {
         <Skeleton />
       ) : (
         <div className="h-[100dvh] w-full pt-32 pb-8 relative">
-          <div className="text-center text-6xl text-white font-sanskrit mb-6 z-30 relative">
+          <div className="text-center text-5xl text-white font-cinzel-decorative mb-6 z-30 relative">
             GALLERY
           </div>
 
