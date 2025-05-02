@@ -26,14 +26,14 @@ const Navbar = () => {
           />
         </div>
         <div>
-          <span className="text-4xl font-sanskrit">
+          <span className="text-2xl font-cinzel-decorative-bold">
             <span className="text-metal">Reso</span>
             nance
           </span>
         </div>
       </div>
 
-      <div className="flex justify-center items-center space-x-4 text-xl text-white font-sanskrit tracking-widest">
+      <div className="flex justify-center items-center space-x-4 text-md text-white font-cinzel-decorative tracking-widest">
         <div className="flex space-x-6">
           {routes.map(({ path, label }) => (
             <Link
