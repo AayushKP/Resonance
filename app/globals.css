@@ -85,6 +85,11 @@ html {
 .spin-zoom {
   animation: spinZoom 10s linear infinite;
 }
+@media (hover: hover) and (pointer: fine) {
+  html {
+    scrollbar-width: none;
+  }
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
