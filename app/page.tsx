@@ -4,18 +4,16 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden font-sans">
-      <div className="absolute  pointer-events-none top-14 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute pointer-events-none top-14 left-1/2 transform -translate-x-1/2 z-20">
         <Image
           priority
-          className=" w-full h-auto object-contain"
+          className=" w-full h-auto object-contain spin-zoom"
           src="/images/resonance.png"
           alt="resonance logo"
           width={450}
           height={200}
-          style={{ opacity: 0.15 }}
         />
       </div>
-
       <main className="z-30 flex flex-col items-center justify-center text-center text-white px-4 pt-52 xl:pt-60">
         <section>
           <h1 className="text-9xl text-metal font-gothic mb-1 tracking-widest">
@@ -27,7 +25,11 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="mt-52 px-20 ">
+        <section className="mt-56">
+          <ScrollingImageRows />
+        </section>
+
+        <section className="mt-10 px-20 ">
           <div className="text-center">
             <h2 className="text-8xl font-sanskrit mb-4">
               What is <span className="text-metal">Resonance</span> ? :
@@ -57,10 +59,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </section>
-
-        <section className="mt-10">
-          <ScrollingImageRows />
         </section>
 
         <section className="mt-30 border border-red-800 text-5xl font-sanskrit w-full px-20">
@@ -95,8 +93,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer className="absolute bottom-0 right-0 p-4 z-30">
+      <footer className="absolute bottom-0 right-0 p-4 z-50">
         <div className="flex space-x-6 items-center bg-white/20 backdrop-blur-md rounded-2xl p-3">
           <a
             href="https://www.instagram.com"
