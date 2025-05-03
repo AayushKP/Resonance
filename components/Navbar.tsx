@@ -10,12 +10,12 @@ const Navbar = () => {
 
   const routes = [
     { path: "/", label: "Home" },
-    { path: "/gallery", label: "Gallery" },
     { path: "/events", label: "Events" },
+    { path: "/gallery", label: "Gallery" },
   ];
 
   return (
-    <div className="fixed top-6 left-1/2 transform -translate-x-1/2 shadow backdrop-blur-2xl h-20 w-[90%] md:w-[85%] bg-white/20 rounded-3xl px-12 py-3 flex justify-between items-center z-50">
+    <div className="fixed top-6 left-1/2 transform -translate-x-1/2 shadow backdrop-blur-2xl h-20 w-[90%] md:w-[85%] bg-white/10 rounded-3xl px-12 py-3 flex justify-between items-center z-50">
       <div className="flex items-center justify-center space-x-3 font-extrabold text-white text-2xl">
         <div>
           <Image
@@ -26,7 +26,7 @@ const Navbar = () => {
           />
         </div>
         <div>
-          <span className="text-2xl font-cinzel-decorative-bold">
+          <span className="text-2xl font-cinzel-decorative-black font-bold">
             <span className="text-metal">Reso</span>
             nance
           </span>
