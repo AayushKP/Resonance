@@ -13,25 +13,31 @@ export default function Events() {
   const cardData = [
     {
       img: "/images/scroll/img1.png",
-      title: "TedX - Innovation",
+      title: "TedX HITK - 2025",
       description: "Explore the minds shaping the future of technology.",
       playlistLink: "https://youtube.com/playlist?list=innovation2025",
     },
     {
       img: "/images/scroll/img2.png",
-      title: "TedX - Humanity",
+      title: "Republic Day'25",
       description: "Discover how compassion drives change worldwide.",
       playlistLink: "https://youtube.com/playlist?list=humanity2025",
     },
     {
       img: "/images/scroll/img3.png",
-      title: "TedX - Sustainability",
+      title: "Prothoma'24",
       description: "Journey into a greener, cleaner tomorrow.",
       playlistLink: "https://youtube.com/playlist?list=sustainability2025",
     },
     {
       img: "/images/scroll/img4.png",
-      title: "TedX - Creativity",
+      title: "Cadence'24",
+      description: "Dive into the art of storytelling and imagination.",
+      playlistLink: "https://youtube.com/playlist?list=creativity2025",
+    },
+    {
+      img: "/images/scroll/img5.png",
+      title: "Independence Day'24",
       description: "Dive into the art of storytelling and imagination.",
       playlistLink: "https://youtube.com/playlist?list=creativity2025",
     },
@@ -56,7 +62,7 @@ export default function Events() {
               </Lens>
             </CardHeader>
             <CardContent>
-              <CardTitle className="text-3xl text-metal font-tagesschrift">
+              <CardTitle className="text-2xl text-metal font-cinzel-decorative-bold">
                 {card.title}
               </CardTitle>
               <CardDescription className="text-white">
