@@ -69,70 +69,118 @@ export default function Background() {
 
     createStars(1000, canvas.width, canvas.height);
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // Add floating music notes
+    const noteCount = 50;
+    const notes = Array.from({ length: noteCount }).map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      speedX: (Math.random() - 0.5) * 0.4,
+      speedY: (Math.random() - 0.5) * 0.4,
+      size: Math.random() * 16 + 12, // 12px to 28px
+      opacity: Math.random() * 0.6 + 0.4,
+      rotation: Math.random() * 2 * Math.PI,
+      rotationSpeed: (Math.random() - 0.5) * 0.01,
+    }));
 
-      // Soft nebula background glow
-      const nebulaGradient = ctx.createRadialGradient(
-        canvas.width / 2,
-        canvas.height / 2,
-        0,
-        canvas.width / 2,
-        canvas.height / 2,
-        Math.max(canvas.width, canvas.height) / 2
-      );
-      nebulaGradient.addColorStop(0, "rgba(256, 215, 0, 0.06)");
-      nebulaGradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+    const musicNoteImg = new Image();
+    musicNoteImg.src = "/music-note.png";
 
-      ctx.fillStyle = nebulaGradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    musicNoteImg.onload = () => {
+      const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      stars.current.forEach((star) => {
-        star.x += star.speedX;
-        star.y += star.speedY;
+        // Nebula
+        const nebulaGradient = ctx.createRadialGradient(
+          canvas.width / 2,
+          canvas.height / 2,
+          0,
+          canvas.width / 2,
+          canvas.height / 2,
+          Math.max(canvas.width, canvas.height) / 2
+        );
+        nebulaGradient.addColorStop(0, "rgba(256, 215, 0, 0.06)");
+        nebulaGradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+        ctx.fillStyle = nebulaGradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Wrap around screen
-        if (star.x < 0) star.x = canvas.width;
-        if (star.x > canvas.width) star.x = 0;
-        if (star.y < 0) star.y = canvas.height;
-        if (star.y > canvas.height) star.y = 0;
+        // Stars
+        stars.current.forEach((star) => {
+          star.x += star.speedX;
+          star.y += star.speedY;
 
-        // Twinkle effect
-        star.opacity += (Math.random() - 0.5) * 0.1;
-        star.opacity = Math.max(0.3, Math.min(1, star.opacity));
+          if (star.x < 0) star.x = canvas.width;
+          if (star.x > canvas.width) star.x = 0;
+          if (star.y < 0) star.y = canvas.height;
+          if (star.y > canvas.height) star.y = 0;
+
+          star.opacity += (Math.random() - 0.5) * 0.1;
+          star.opacity = Math.max(0.3, Math.min(1, star.opacity));
+
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+          ctx.fill();
+        });
+
+        // Music notes
+        notes.forEach((note) => {
+          note.x += note.speedX;
+          note.y += note.speedY;
+          note.rotation += note.rotationSpeed;
+
+          if (note.x < -50) note.x = canvas.width + 50;
+          if (note.x > canvas.width + 50) note.x = -50;
+          if (note.y < -50) note.y = canvas.height + 50;
+          if (note.y > canvas.height + 50) note.y = -50;
+
+          ctx.save();
+          ctx.translate(note.x, note.y);
+          ctx.rotate(note.rotation);
+          ctx.globalAlpha = note.opacity;
+          ctx.drawImage(
+            musicNoteImg,
+            -note.size / 2,
+            -note.size / 2,
+            note.size,
+            note.size
+          );
+          ctx.restore();
+          ctx.globalAlpha = 1;
+        });
+
+        // Cursor glow
+        const glowRadius = window.innerWidth > 1280 ? 80 : 120;
+        const glow = ctx.createRadialGradient(
+          pointer.current.x,
+          pointer.current.y,
+          0,
+          pointer.current.x,
+          pointer.current.y,
+          glowRadius
+        );
+        glow.addColorStop(0, "rgba(255, 165, 0, 0.2)");
+        glow.addColorStop(0.6, "rgba(255, 165, 0, 0.1)");
+        glow.addColorStop(0.8, "rgba(255, 165, 0, 0.05)");
+        glow.addColorStop(1, "rgba(255, 165, 0, 0)");
 
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+        ctx.fillStyle = glow;
+        ctx.arc(
+          pointer.current.x,
+          pointer.current.y,
+          glowRadius,
+          0,
+          Math.PI * 2
+        );
         ctx.fill();
-      });
 
-      // Draw cursor glow effect - dimmed
-      const glowRadius = window.innerWidth > 1280 ? 80 : 120;
-      const glow = ctx.createRadialGradient(
-        pointer.current.x,
-        pointer.current.y,
-        0,
-        pointer.current.x,
-        pointer.current.y,
-        glowRadius
-      );
-      glow.addColorStop(0, "rgba(255, 165, 0, 0.2)"); // bright orange center
-      glow.addColorStop(0.6, "rgba(255, 165, 0, 0.1)");
-      glow.addColorStop(0.8, "rgba(255, 165, 0, 0.05)");
-      glow.addColorStop(1, "rgba(255, 165, 0, 0)");
+        requestAnimationFrame(animate);
+      };
 
-      ctx.beginPath();
-      ctx.fillStyle = glow;
-      ctx.arc(pointer.current.x, pointer.current.y, 120, 0, Math.PI * 2);
-      ctx.fill();
-
-      requestAnimationFrame(animate);
+      animate();
     };
-
-    animate();
 
     const updatePointer = (e: MouseEvent) => {
       pointer.current.x = e.clientX;
