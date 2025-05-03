@@ -69,7 +69,7 @@ export default function ScrollingImageRows() {
             {row.map((src, i) => (
               <div
                 key={i}
-                className="relative flex-shrink-0 h-40 sm:h-64 md:h-96 w-[12rem] sm:w-[20rem] md:w-[30rem] origin-left opacity-90"
+                className="relative flex-shrink-0 h-40 sm:h-64 md:h-96 w-[12rem] sm:w-[20rem] md:w-[30rem] origin-left "
               >
                 <Image
                   priority
