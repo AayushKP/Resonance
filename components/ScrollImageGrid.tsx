@@ -57,7 +57,7 @@ export default function ScrollingImageRows() {
   }, []);
 
   return (
-    <div className="space-y-14 w-full overflow-hidden pt-20 pb-40">
+    <div className="space-y-14 w-full overflow-hidden py-24">
       {imageRows.map((row, rowIndex) => (
         <div
           key={rowIndex}
