@@ -19,14 +19,14 @@ const Navbar = () => {
       <div className="flex items-center justify-center space-x-3 font-extrabold text-white text-2xl">
         <div>
           <Image
-            src="/images/hitk-logo.png"
+            src="/images/resonance.png"
             alt="resonance logo"
-            width={50}
-            height={50}
+            width={60}
+            height={60}
           />
         </div>
         <div>
-          <span className="text-2xl font-cinzel-decorative-black font-bold">
+          <span className="text-2xl font-cinzel-decorative-bold font-bold">
             <span className="text-metal">Reso</span>
             nance
           </span>
