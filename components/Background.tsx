@@ -64,13 +64,20 @@ export default function Background() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${window.innerHeight}px`;
 
-    createStars(1000, canvas.width, canvas.height);
+    ctx.scale(dpr, dpr);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+
+    createStars(2000, window.innerWidth, window.innerHeight);
 
     // Add floating music notes
-    const noteCount = 50;
+    const noteCount = 80;
     const notes = Array.from({ length: noteCount }).map(() => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -100,7 +107,8 @@ export default function Background() {
           canvas.height / 2,
           Math.max(canvas.width, canvas.height) / 2
         );
-        nebulaGradient.addColorStop(0, "rgba(256, 215, 0, 0.06)");
+        nebulaGradient.addColorStop(0, "rgba(47, 45, 189, 0.2)");
+
         nebulaGradient.addColorStop(1, "rgba(0, 0, 0, 0)");
         ctx.fillStyle = nebulaGradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
