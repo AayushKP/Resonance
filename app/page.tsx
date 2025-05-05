@@ -28,7 +28,7 @@ export default function Home() {
           <div className="relative z-10">
             <div className="text-center">
               <h2 className="text-8xl font-sanskrit mb-4">
-                What is <span className="text-metal">Resonance</span> ? :
+                About <span className="text-metal">Resonance</span> 
               </h2>
             </div>
 
