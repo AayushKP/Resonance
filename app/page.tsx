@@ -1,6 +1,7 @@
 import HorizontalScroll from "@/components/HorizontalScroll";
 import ScrollingImageRows from "@/components/ScrollImageGrid";
 import Image from "next/image";
+import coordinators from "@/public/data/coordinators.json";
 
 export default function Home() {
   return (
@@ -28,7 +29,7 @@ export default function Home() {
           <div className="relative z-10">
             <div className="text-center">
               <h2 className="text-8xl font-sanskrit mb-4">
-                About <span className="text-metal">Resonance</span> 
+                About <span className="text-metal">Resonance</span>
               </h2>
             </div>
 
@@ -59,25 +60,45 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-14 text-6xl font-sanskrit w-full mb-10">
-          CO-ORDINATORS
+        <section className="mt-14 text-6xl font-cinzel-decorative w-full mb-10">
+          CO<span className="text-metal">ORDINATORS</span>
           <div className="flex flex-col items-center justify-center gap-10 py-10 px-4">
-            <div className="flex flex-wrap justify-center gap-6">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div
-                  key={`c1-${i}`}
-                  className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full bg-transparent border "
-                />
-              ))}
+            <div className="flex flex-wrap justify-center gap-6 relative">
+              {coordinators
+                .slice(0, Math.ceil(coordinators.length / 2))
+                .map((coordinator, i) => (
+                  <div
+                    key={`c1-${i}`}
+                    className="w-24 h-24 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden"
+                  >
+                    <Image
+                      src={coordinator.src}
+                      alt={coordinator.alt}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:bg-opacity-60" />
+                  </div>
+                ))}
             </div>
 
-            <div className="flex relative overflow-hidden flex-wrap justify-center gap-6">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div
-                  key={`c2-${i}`}
-                  className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full bg-transparent border "
-                ></div>
-              ))}
+            <div className="flex flex-wrap justify-center gap-6 ">
+              {coordinators
+                .slice(Math.ceil(coordinators.length / 2))
+                .map((coordinator, i) => (
+                  <div
+                    key={`c2-${i}`}
+                    className="w-24 h-24 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden"
+                  >
+                    <Image
+                      src={coordinator.src}
+                      alt={coordinator.alt}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:bg-opacity-60" />
+                  </div>
+                ))}
             </div>
           </div>
           <HorizontalScroll />
