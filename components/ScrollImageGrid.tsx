@@ -2,19 +2,29 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import scrollImages from "@/public/data/scroll.json"; // Make sure the path is correct
 
-// Images
-const allImages = Array.from(
-  { length: 14 },
-  (_, i) => `/images/scroll/img${i + 1}.png`
-);
+type ScrollImage = {
+  img: string;
+  alt: string;
+};
 
-// Distribute images into rows
-const imageRows = [
-  allImages.slice(0, 5), // Row 1
-  allImages.slice(5, 10), // Row 2
-  allImages.slice(10, 14), // Row 3
-];
+// Split into rows
+const splitIntoRows = (
+  images: ScrollImage[],
+  rowSizes: number[]
+): ScrollImage[][] => {
+  const rows: ScrollImage[][] = [];
+  let index = 0;
+  for (const size of rowSizes) {
+    rows.push(images.slice(index, index + size));
+    index += size;
+  }
+  return rows;
+};
+
+const rowSizes = [5, 5, 4]; // You can adjust this if needed
+const imageRows = splitIntoRows(scrollImages, rowSizes);
 
 export default function ScrollingImageRows() {
   const rowRefs = useRef<HTMLDivElement[]>([]);
@@ -66,20 +76,19 @@ export default function ScrollingImageRows() {
           className="overflow-visible w-full will-change-transform"
         >
           <div className="flex gap-14 md:gap-14 px-6 w-max">
-            {row.map((src, i) => (
+            {row.map((img, i) => (
               <div
                 key={i}
-                className="relative flex-shrink-0 h-40 sm:h-64 md:h-96 w-[12rem] sm:w-[20rem] md:w-[30rem] origin-left "
+                className="relative flex-shrink-0 h-40 sm:h-64 md:h-96 w-[12rem] sm:w-[20rem] md:w-[30rem] origin-left group"
               >
                 <Image
                   priority
-                  src={src}
-                  alt={`Scroll image ${i}`}
+                  src={img.img}
+                  alt={img.alt || `Scroll image ${i}`}
                   width={600}
                   height={600}
                   className="absolute inset-0 w-full h-full object-cover object-center rounded-lg"
                 />
-                <div className="absolute inset-0 h-full w-full opacity-0 hover:opacity-80 transition-opacity bg-black pointer-events-none" />
               </div>
             ))}
           </div>
