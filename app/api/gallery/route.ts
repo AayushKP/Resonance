@@ -17,7 +17,7 @@ export async function GET() {
     const authString = `${apiKey}:${apiSecret}`;
     const authToken = Buffer.from(authString).toString("base64");
 
-    const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/resources/image?type=upload&asset_folder=${folder}/&max_results=100`;
+    const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/resources/image?type=upload&search?expression=folder:${folder}/&max_results=100`;
 
     const response = await fetch(apiUrl, {
       headers: {
