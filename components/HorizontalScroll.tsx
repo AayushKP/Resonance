@@ -1,6 +1,8 @@
 "use client";
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import coordinators from "@/public/data/coordinators.json";
+import Image from "next/image";
 
 export default function HorizontalScroll() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -25,7 +27,7 @@ export default function HorizontalScroll() {
         className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-2"
         aria-label="Scroll Left"
       >
-        <ChevronLeft className="w-8 h-8 text-white hover:text-red-400 transition" />
+        <ChevronLeft className="w-8 h-8 text-white hover:text-yellow-600 transition" />
       </button>
 
       <div
@@ -33,11 +35,26 @@ export default function HorizontalScroll() {
         className="overflow-x-auto whitespace-nowrap py-10 scrollbar-hide scroll-smooth"
       >
         <div className="flex flex-row gap-6 w-max">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <div key={i} className="flex flex-row items-center gap-6">
-              <div className="w-52 h-52 rounded-full bg-transparent border" />
-              <div className="w-xs h-44 text-xs py-4 font-cinzel-decorative rounded-xl backdrop-blur-sm bg-black/10 border">
-                About Co-ordinator
+          {coordinators.map((coordinator, i) => (
+            <div key={i} className="flex flex-row items-center gap-6 px-2">
+              <div className="w-44 h-44 md:w-52 sm:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative">
+                <Image
+                  src={coordinator.src}
+                  alt={coordinator.alt || `Coordinator ${i + 1}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="w-80 flex flex-col justify-center h-44 py-3 gap-1 rounded-xl backdrop-blur-sm bg-black/10 border px-4">
+                <div className="text-lg whitespace-normal font-cinzel-decorative overflow-hidden">
+                  {coordinator.name}
+                </div>
+                <div className="text-sm font-cinzel-decorative-bold text-metal whitespace-normal overflow-hidden">
+                  {coordinator.role}
+                </div>
+                <div className="text-xs text-white font-montserrat whitespace-normal overflow-hidden">
+                  {coordinator.about}
+                </div>
               </div>
             </div>
           ))}
@@ -49,7 +66,7 @@ export default function HorizontalScroll() {
         className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 p-2"
         aria-label="Scroll Right"
       >
-        <ChevronRight className="w-8 h-8 text-white hover:text-red-400 transition" />
+        <ChevronRight className="w-8 h-8 text-white hover:text-yellow-600  transition" />
       </button>
     </div>
   );
