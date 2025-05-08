@@ -4,69 +4,79 @@
     "name": "Anushka Das",
     "alt": "Anushka",
     "about": "The visionary behind our posters, videos, content, and online presence",
-    "role": "Creative Head & Social Media Manager"
+    "role": "Creative Head & Social Media Manager",
+    "mail": "anushka.das.ece26@heritageit.edu.in"
   },
   {
     "src": "https://res.cloudinary.com/dwexyl02r/image/upload/v1746611744/img2_obbybd.jpg",
     "name": "Otriyo Ghosh",
     "alt": "Otriyo",
     "about": "Overseeing every operation of the club and ensuring that every project and performance upholds the artistic and professional standards Resonance is known for.",
-    "role": "Curator"
+    "role": "Curator",
+    "mail": " otriyo.ghosh.ece26@heritageit.edu.in"
   },
   {
     "src": "https://res.cloudinary.com/dwexyl02r/image/upload/v1746611743/img3_caobta.jpg",
     "name": "Abhinandan Singh Mahraur",
     "alt": "Abhinandan",
     "about": "Ensuring our instruments, rehearsals, gigs, and events run smoothly like clockwork",
-    "role": "Logistics Manager"
+    "role": "Logistics Manager",
+    "mail": "abhinandan.singhmahraur.ece26@heritageit.edu.in"
   },
   {
     "src": "https://res.cloudinary.com/dwexyl02r/image/upload/v1746611743/img4_inxexl.jpg",
     "name": "Ayush Kashyap",
     "alt": "Ayush",
     "about": "Handling all our sound tech, gear, and production. Also working on a full-fledged website for Resonance, showcasing our journey to the world.",
-    "role": "Tech Head"
+    "role": "Tech Head",
+    "mail": " ayush.kashyap.iotcs26@heritageit.edu.in"
   },
   {
     "src": "https://res.cloudinary.com/dwexyl02r/image/upload/v1746611744/img5_iai5jw.jpg",
     "name": "Anushka Ghosh",
     "alt": "Anushka",
     "about": "Overseeing every operation of the club and ensuring that every project and performance upholds the artistic and professional standards Resonance is known for.",
-    "role": "Curator"
+    "role": "Curator",
+    "mail": " anushkaghosh.ece27@heritageit.edu.in "
   },
   {
     "src": "https://res.cloudinary.com/dwexyl02r/image/upload/v1746611742/img6_cj9w8o.jpg",
     "name": "Saikat Kumar Sana",
     "alt": "Saikat",
     "about": "Ensuring our instruments, rehearsals, gigs, and events run smoothly like clockwork",
-    "role": "Logistics Manager"
+    "role": "Logistics Manager",
+    "mail": "saikat.kumarsana.ece27@heritageit.edu.in"
   },
   {
     "src": "https://res.cloudinary.com/dwexyl02r/image/upload/v1746611744/img7_hreb8b.jpg",
     "name": "Sanjana Ganguly",
     "alt": "Sanjana",
     "about": "The visionary behind our posters, videos, content, and online presence",
-    "role": "Creative Head & Social Media Manager"
+    "role": "Creative Head & Social Media Manager",
+    "mail": ":sanjana.ganguly.ece27@heritage.edu.in"
   },
   {
     "src": "https://res.cloudinary.com/dwexyl02r/image/upload/v1746611744/img8_ivka07.jpg",
     "name": "Anirban Chandra",
     "alt": "Anirban",
     "about": "Handling all our sound tech, gear, and production. Also working on a full-fledged website for Resonance, showcasing our journey to the world.",
-    "role": "Tech Head"
+    "role": "Tech Head",
+    "mail": "anirban.chandra.ece27@heritageit.edu.in"
   },
   {
     "src": "https://res.cloudinary.com/dwexyl02r/image/upload/v1746611744/img9_nssc1x.jpg",
     "name": "Baidurya Lahiri",
     "alt": "Baidurya",
     "about": "Building bridges with other institutions, musicians, and the wider music community.",
-    "role": "PR and Outreach Head"
+    "role": "PR and Outreach Head",
+    "mail": "baidurya.lahiri.ee27@heritageit.edu.in"
   },
   {
     "src": "https://res.cloudinary.com/dwexyl02r/image/upload/v1746611745/img10_mqksnq.jpg",
     "name": "Tirthotoya Haldar",
     "alt": "Tirthotoya",
     "about": "Building bridges with other institutions, musicians, and the wider music community.",
-    "role": "PR and Outreach Head"
+    "role": "PR and Outreach Head",
+    "mail": "tirthotoya.haldar.che27@heritageit.edu.in "
   }
 ]
