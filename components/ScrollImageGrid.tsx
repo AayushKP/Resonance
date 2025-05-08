@@ -67,7 +67,7 @@ export default function ScrollingImageRows() {
   }, []);
 
   return (
-    <div className="space-y-14 w-full overflow-hidden py-24">
+    <div className="space-y-4 md:space-y-14 w-full overflow-hidden py-24">
       {imageRows.map((row, rowIndex) => (
         <div
           key={rowIndex}
@@ -75,7 +75,7 @@ export default function ScrollingImageRows() {
           ref={(el) => (rowRefs.current[rowIndex] = el!)}
           className="overflow-visible w-full will-change-transform"
         >
-          <div className="flex gap-14 md:gap-14 px-6 w-max">
+          <div className="flex gap-4 md:gap-14 px-6 w-max">
             {row.map((img, i) => (
               <div
                 key={i}
