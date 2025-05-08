@@ -71,7 +71,7 @@ export default function ScrollingImageRows() {
       {imageRows.map((row, rowIndex) => (
         <div
           key={rowIndex}
-          //@ts-expect-error
+          //@ts-ignore
           ref={(el) => (rowRefs.current[rowIndex] = el!)}
           className="overflow-visible w-full will-change-transform"
         >
