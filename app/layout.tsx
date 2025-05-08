@@ -27,10 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans bg-transparent`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans bg-black`}
       >
         <div
-          className="fixed inset-0 z-[-10] bg-cover bg-center"
+          className="fixed inset-0 z-[-10] bg-cover bg-center "
           style={{ backgroundImage: "url('/images/background.png')" }}
         />
         <div className="fixed inset-0 z-[-10]">
