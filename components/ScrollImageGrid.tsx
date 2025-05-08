@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import scrollImages from "@/public/data/scroll.json"; // Make sure the path is correct
+import scrollImages from "@/public/data/scroll.json";
 
 type ScrollImage = {
   img: string;
@@ -23,7 +23,7 @@ const splitIntoRows = (
   return rows;
 };
 
-const rowSizes = [5, 5, 4]; // You can adjust this if needed
+const rowSizes = [5, 5, 4];
 const imageRows = splitIntoRows(scrollImages, rowSizes);
 
 export default function ScrollingImageRows() {
@@ -46,7 +46,7 @@ export default function ScrollingImageRows() {
         if (!ref) return;
 
         const direction = idx % 2 === 0 ? 1 : -1;
-        const baseSpeed = [0.5, 0.4, 0.5];
+        const baseSpeed = [0.6, 0.4, 0.5];
         const speed = baseSpeed[idx] || 0.5;
 
         offsets.current[idx] +=
