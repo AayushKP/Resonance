@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import coordinators from "@/public/data/coordinators.json";
 import Image from "next/image";
+import { BlurFade } from "./magicui/blur-fade";
 
 export default function HorizontalScroll() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -39,13 +40,14 @@ export default function HorizontalScroll() {
             <div key={i} className="flex flex-row items-center gap-6 px-2">
               <div className="w-44 h-44 md:w-52 sm:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative">
                 <Image
+                  priority
                   src={coordinator.src}
                   alt={coordinator.alt || `Coordinator ${i + 1}`}
                   fill
                   className="object-cover"
                 />
               </div>
-              <div className="w-80 flex flex-col justify-center h-44 py-3 gap-1 rounded-xl backdrop-blur-sm bg-black/10 border px-4">
+              <div className="w-80 flex flex-col cursor-pointer justify-center h-44 py-3 gap-1 rounded-xl backdrop-blur-xl bg-black/10 border px-4 transform transition-transform duration-500 hover:scale-105 ease-in-out">
                 <div className="text-lg whitespace-normal font-cinzel-decorative overflow-hidden">
                   {coordinator.name}
                 </div>
