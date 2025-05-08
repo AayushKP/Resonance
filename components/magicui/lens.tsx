@@ -31,7 +31,7 @@ interface LensProps {
   ariaLabel?: string;
 }
 
-export function Lens({
+export default function Lens({
   children,
   zoomFactor = 1.3,
   lensSize = 170,
