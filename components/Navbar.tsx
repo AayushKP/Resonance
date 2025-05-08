@@ -27,7 +27,7 @@ const Navbar = () => {
           width={50}
           height={50}
         />
-        <span className="inline font-cinzel-decorative-bold text-2xl">
+        <span className="inline font-cinzel-decorative-bold text-lg">
           <span className="text-metal">Reso</span>
           nance
         </span>
