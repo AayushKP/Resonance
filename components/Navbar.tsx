@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { useState } from "react";
 import { Menu } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -32,7 +33,7 @@ const Navbar = () => {
         </span>
       </div>
 
-      <div className="lg:hidden ">
+      <div className="lg:hidden">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="text-white cursor-pointer"
@@ -67,29 +68,37 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {isMenuOpen && (
-        <div className="absolute top-20 right-6 w-56 bg-[#3f3939]  rounded-xl shadow-md p-4 flex flex-col space-y-4 text-white z-50  font-cinzel-decorative text-md transition-all duration-700 ease-in-out lg:hidden ">
-          {routes.map(({ path, label }) => (
-            <Link
-              key={path}
-              href={path}
-              onClick={() => setIsMenuOpen(false)}
-              className={clsx("hover:text-yellow-500 cursor-pointer", {
-                "text-yellow-400": pathname === path,
-              })}
-            >
-              {label}
-            </Link>
-          ))}
-          <Link
-            href="/achievements"
-            onClick={() => setIsMenuOpen(false)}
-            className="cursor-pointer bg-gradient-to-r from-yellow-800 via-yellow-500 to-yellow-900 text-center py-1 px-3 rounded-lg"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute top-20 left-1/2 transform -translate-x-1/2 w-[90%] bg-[#3f3939] rounded-xl shadow-md p-4 flex flex-col space-y-4 text-white z-50 font-cinzel-decorative text-md lg:hidden"
           >
-            Achievements
-          </Link>
-        </div>
-      )}
+            {routes.map(({ path, label }) => (
+              <Link
+                key={path}
+                href={path}
+                onClick={() => setIsMenuOpen(false)}
+                className={clsx("hover:text-yellow-500 cursor-pointer", {
+                  "text-yellow-400": pathname === path,
+                })}
+              >
+                {label}
+              </Link>
+            ))}
+            <Link
+              href="/achievements"
+              onClick={() => setIsMenuOpen(false)}
+              className="cursor-pointer bg-gradient-to-r from-yellow-800 via-yellow-500 to-yellow-900 text-center py-1 px-3 rounded-lg"
+            >
+              Achievements
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
