@@ -71,8 +71,9 @@ export default function ScrollingImageRows() {
       {imageRows.map((row, rowIndex) => (
         <div
           key={rowIndex}
-          //@ts-ignore
-          ref={(el) => (rowRefs.current[rowIndex] = el!)}
+          ref={(el) => {
+            rowRefs.current[rowIndex] = el!;
+          }}
           className="overflow-visible w-full will-change-transform"
         >
           <div className="flex gap-4 md:gap-14 px-6 w-max">
