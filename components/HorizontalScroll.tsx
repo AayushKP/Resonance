@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import coordinators from "@/public/data/coordinators.json";
 import Image from "next/image";
-import { BlurFade } from "./magicui/blur-fade";
 
 export default function HorizontalScroll() {
   const scrollRef = useRef<HTMLDivElement>(null);
