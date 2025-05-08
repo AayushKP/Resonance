@@ -107,12 +107,12 @@ export default function Gallery() {
                   className="relative w-full rounded-lg overflow-hidden"
                 >
                   <Image
+                    priority
                     src={img.secure_url}
                     alt={img.public_id.split("/").pop() || "Gallery image"}
                     width={img.width}
                     height={img.height}
                     className="w-full h-auto object-cover"
-                    loading="lazy"
                     quality={75}
                   />
                 </motion.div>
@@ -134,7 +134,6 @@ export default function Gallery() {
                     width={img.width}
                     height={img.height}
                     className="w-full h-auto object-cover"
-                    loading="lazy"
                     quality={75}
                   />
                 </motion.div>
@@ -151,12 +150,12 @@ export default function Gallery() {
                   className="relative w-full rounded-lg overflow-hidden"
                 >
                   <Image
+                    priority
                     src={img.secure_url}
                     alt={img.public_id.split("/").pop() || "Gallery image"}
                     width={img.width}
                     height={img.height}
                     className="w-full h-auto object-cover"
-                    loading="lazy"
                     quality={75}
                   />
                 </motion.div>
