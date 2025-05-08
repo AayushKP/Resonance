@@ -45,7 +45,7 @@ export default function Events() {
 
   return (
     <div className="min-h-screen w-full pt-32 px-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 mb-10">
         {cardData.map((card, i) => (
           <Card
             key={i}
