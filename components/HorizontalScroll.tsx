@@ -37,7 +37,7 @@ export default function HorizontalScroll() {
         <div className="flex flex-row gap-6 w-max">
           {coordinators.map((coordinator, i) => (
             <div key={i} className="flex flex-row items-center gap-6 px-2">
-              <div className="w-44 h-44 md:w-52 sm:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative">
+              <div className="w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative">
                 <Image
                   priority
                   src={coordinator.src}
