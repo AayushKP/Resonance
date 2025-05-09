@@ -7,6 +7,7 @@ import coordinators from "@/public/data/coordinators.json";
 import teacherCoordinator from "@/public/data/teacherCoordinator.json";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
+import alumni from "@/public/data/alumni.json";
 
 export default function Home() {
   return (
@@ -152,7 +153,6 @@ export default function Home() {
                     isOdd ? "md:flex-row-reverse" : ""
                   } items-center gap-4`}
                 >
-                  {/* Circle */}
                   <div className="w-32 h-32 md:w-52 md:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative shrink-0">
                     <Image
                       priority
@@ -179,9 +179,65 @@ export default function Home() {
           </div>
         </motion.section>
 
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col justify-start items-center mt-24"
+        >
+          <div className="font-cinzel-decorative text-4xl md:text-6xl text-center">
+            NOTABLE <span className="text-metal">SENIORS</span>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-12 pt-10">
+            {" "}
+            {/* Adjusted gap for better spacing including name */}
+            {alumni.map((alum, index) => (
+              <motion.div
+                key={`alum-card-${index}`}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="flex flex-col items-center w-28 md:w-32 lg:w-44"
+              >
+                <motion.div
+                  whileHover={{
+                    scale: 1.05,
+                    transition: {
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    },
+                  }}
+                  className="group w-28 h-28 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden cursor-pointer"
+                >
+                  <Image
+                    priority
+                    src={alum.src}
+                    alt={alum.alt || alum.name || `Coordinator ${index + 1}`}
+                    fill
+                    className="object-cover rounded-full"
+                  />
+
+                  <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:bg-opacity-60 rounded-full" />
+                </motion.div>
+
+                <div className="text-center mt-3">
+                  {" "}
+                  <div className="bg-white/10 backdrop-blur-sm p-2 px-3 rounded-md text-sm md:text-base font-cinzel-decorative text-white">
+                    {alum.name}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
         <VelocityScroll>
           Resonance <span className="text-metal">2025</span>
         </VelocityScroll>
+
         <motion.section
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
