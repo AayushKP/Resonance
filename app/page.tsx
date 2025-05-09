@@ -1,11 +1,12 @@
 "use client";
-
 import { motion } from "framer-motion";
 import HorizontalScroll from "@/components/HorizontalScroll";
 import ScrollingImageRows from "@/components/ScrollImageGrid";
 import Image from "next/image";
 import coordinators from "@/public/data/coordinators.json";
+import teacherCoordinator from "@/public/data/teacherCoordinator.json";
 import { BlurFade } from "@/components/magicui/blur-fade";
+import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
 
 export default function Home() {
   return (
@@ -117,6 +118,70 @@ export default function Home() {
           </div>
         </motion.section>
 
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col justify-start items-center mt-24"
+        >
+          <div className="font-cinzel-decorative text-4xl md:text-6xl">
+            TEACHER <span className="text-metal">COORDINATORS</span>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-8 pt-10">
+            {teacherCoordinator.map((coordinator, index) => {
+              const isOdd = index % 2 === 1;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{
+                    opacity: 0,
+                    y: 40,
+                    x: isOdd ? 80 : -80,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    x: 0,
+                  }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className={`flex flex-col md:flex-row ${
+                    isOdd ? "md:flex-row-reverse" : ""
+                  } items-center gap-4`}
+                >
+                  {/* Circle */}
+                  <div className="w-32 h-32 md:w-52 md:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative shrink-0">
+                    <Image
+                      priority
+                      src={coordinator.src}
+                      alt={coordinator.alt || `Coordinator ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="w-72 md:w-80 flex flex-col cursor-pointer justify-center h-32 md:h-44 py-3 gap-1 rounded-xl backdrop-blur-xl bg-black/10 border px-4 transform transition-transform duration-500 hover:scale-105 ease-in-out">
+                    <div className="text-lg whitespace-normal font-cinzel-decorative overflow-hidden">
+                      {coordinator.name}
+                    </div>
+                    <a href={`mailto:${coordinator.mail}`}>
+                      <div className="text-xs tracking-wider text-metal whitespace-normal font-Montserrat overflow-hidden">
+                        {coordinator.mail}
+                      </div>
+                    </a>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.section>
+
+        <VelocityScroll>
+          Resonance <span className="text-metal">2025</span>
+        </VelocityScroll>
         <motion.section
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
