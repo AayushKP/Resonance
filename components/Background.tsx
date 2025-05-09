@@ -79,7 +79,7 @@ export default function Background() {
     ctx.imageSmoothingQuality = "high";
     createStars(2000, window.innerWidth, window.innerHeight);
 
-    const noteCount = 100;
+    const noteCount = 90;
     const notes = Array.from({ length: noteCount }).map(() => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
