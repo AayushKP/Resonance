@@ -46,7 +46,7 @@ export default function HorizontalScroll() {
                   className="object-cover"
                 />
               </div>
-              <div className="w-80 flex flex-col cursor-pointer justify-center h-44 py-3 gap-1 rounded-xl backdrop-blur-xl bg-black/10 border px-4 transform transition-transform duration-500 hover:scale-105 ease-in-out">
+              <div className="w-80 flex flex-col cursor-pointer justify-center h-44 py-3 gap-1 rounded-xl backdrop-blur-lg bg-black/10 border px-4 transform transition-transform duration-500 hover:scale-105 ease-in-out">
                 <div className="text-lg whitespace-normal font-cinzel-decorative overflow-hidden">
                   {coordinator.name}
                 </div>
