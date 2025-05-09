@@ -187,12 +187,11 @@ export default function Home() {
           className="flex flex-col justify-start items-center mt-24"
         >
           <div className="font-cinzel-decorative text-4xl md:text-6xl text-center">
-            NOTABLE <span className="text-metal">SENIORS</span>
+            NOTABLE <span className="text-metal">ALUMNI</span>
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-12 pt-10">
             {" "}
-            {/* Adjusted gap for better spacing including name */}
             {alumni.map((alum, index) => (
               <motion.div
                 key={`alum-card-${index}`}
