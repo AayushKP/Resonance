@@ -126,6 +126,58 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="flex flex-col justify-start items-center mt-24"
         >
+          <div className="font-cinzel-decorative text-4xl md:text-5xl xxl:text-6xl text-center">
+            NOTABLE <span className="text-metal">ALUMNI</span>
+          </div>
+
+          <div className="flex flex-wrap lg:flex-nowrap justify-center gap-6 py-10 px-4 overflow-x-auto lg:overflow-x-visible">
+            {alumni.map((alum, index) => (
+              <motion.div
+                key={`alum-${index}`}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="flex-shrink-0 flex flex-col items-center w-28 md:w-32 lg:w-44"
+              >
+                <motion.div
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.3, ease: "easeInOut" },
+                  }}
+                  className="group w-28 h-28 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden cursor-pointer"
+                >
+                  <Image
+                    priority
+                    src={alum.src}
+                    alt={alum.alt || alum.name || `Alumni ${index + 1}`}
+                    fill
+                    className="object-cover rounded-full"
+                  />
+                  <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:bg-opacity-60 rounded-full" />
+                </motion.div>
+
+                <div className="text-center mt-3">
+                  <div className="bg-white/10 backdrop-blur-sm p-2 px-3 rounded-md text-sm md:text-base font-cinzel-decorative text-white">
+                    {alum.name}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        <VelocityScroll>
+          Resonance <span className="text-metal">2025</span>
+        </VelocityScroll>
+
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col justify-start items-center mt-10 "
+        >
           <div className="font-cinzel-decorative text-4xl md:text-5xl xxl:text-6xl">
             FACULTY <span className="text-metal">COORDINATORS</span>
           </div>
@@ -178,64 +230,6 @@ export default function Home() {
             })}
           </div>
         </motion.section>
-
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col justify-start items-center mt-24"
-        >
-          <div className="font-cinzel-decorative text-4xl md:text-5xl xxl:text-6xl text-center">
-            NOTABLE <span className="text-metal">ALUMNI</span>
-          </div>
-
-          <div className="flex lg:flex-row flex-wrap justify-center gap-x-8 gap-y-12 pt-10">
-            {" "}
-            {alumni.map((alum, index) => (
-              <motion.div
-                key={`alum-card-${index}`}
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="flex flex-col items-center w-28 md:w-32 lg:w-44"
-              >
-                <motion.div
-                  whileHover={{
-                    scale: 1.05,
-                    transition: {
-                      duration: 0.3,
-                      ease: "easeInOut",
-                    },
-                  }}
-                  className="group w-28 h-28 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden cursor-pointer"
-                >
-                  <Image
-                    priority
-                    src={alum.src}
-                    alt={alum.alt || alum.name || `Coordinator ${index + 1}`}
-                    fill
-                    className="object-cover rounded-full"
-                  />
-
-                  <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:bg-opacity-60 rounded-full" />
-                </motion.div>
-
-                <div className="text-center mt-3">
-                  {" "}
-                  <div className="bg-white/10 backdrop-blur-sm p-2 px-3 rounded-md text-sm md:text-base font-cinzel-decorative text-white">
-                    {alum.name}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        <VelocityScroll>
-          Resonance <span className="text-metal">2025</span>
-        </VelocityScroll>
 
         <motion.section
           initial={{ opacity: 0, y: 40 }}
