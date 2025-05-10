@@ -124,13 +124,13 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col justify-start items-center mt-24"
+          className="flex flex-col justify-start items-center mt-20"
         >
           <div className="font-cinzel-decorative text-4xl md:text-5xl xxl:text-6xl text-center">
             NOTABLE <span className="text-metal">ALUMNI</span>
           </div>
 
-          <div className="flex flex-wrap lg:flex-nowrap justify-center gap-6 py-10 px-4 overflow-x-auto lg:overflow-x-visible">
+          <div className="flex flex-wrap lg:flex-nowrap justify-center gap-6 py-8 px-4 overflow-x-auto lg:overflow-x-visible">
             {alumni.map((alum, index) => (
               <motion.div
                 key={`alum-${index}`}
@@ -176,7 +176,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col justify-start items-center mt-10 "
+          className="flex flex-col justify-start items-center mt-20"
         >
           <div className="font-cinzel-decorative text-4xl md:text-5xl xxl:text-6xl">
             FACULTY <span className="text-metal">COORDINATORS</span>
