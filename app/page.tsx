@@ -126,8 +126,8 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="flex flex-col justify-start items-center mt-24"
         >
-          <div className="font-cinzel-decorative text-4xl md:text-6xl">
-            TEACHER <span className="text-metal">COORDINATORS</span>
+          <div className="font-cinzel-decorative text-4xl md:text-5xl xxl:text-6xl">
+            FACULTY <span className="text-metal">COORDINATORS</span>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8 pt-10">
@@ -186,11 +186,11 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="flex flex-col justify-start items-center mt-24"
         >
-          <div className="font-cinzel-decorative text-4xl md:text-6xl text-center">
+          <div className="font-cinzel-decorative text-4xl md:text-5xl xxl:text-6xl text-center">
             NOTABLE <span className="text-metal">ALUMNI</span>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-12 pt-10">
+          <div className="flex lg:flex-row flex-wrap justify-center gap-x-8 gap-y-12 pt-10">
             {" "}
             {alumni.map((alum, index) => (
               <motion.div
