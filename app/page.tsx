@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import HorizontalScroll from "@/components/HorizontalScroll";
 import ScrollingImageRows from "@/components/ScrollImageGrid";
 import Image from "next/image";
-import coordinators from "@/public/data/coordinators.json";
-import teacherCoordinator from "@/public/data/teacherCoordinator.json";
+import coordinators from "@/lib/data/coordinators.json";
+import teacherCoordinator from "@/lib/data/teacherCoordinator.json";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
-import alumni from "@/public/data/alumni.json";
+import alumni from "@/lib/data/alumni.json";
 
 export default function Home() {
   return (

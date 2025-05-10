@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import events from "@/public/data/events.json";
+import events from "@/lib/data/events.json";
 
 export default function Events() {
   return (

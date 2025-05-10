@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import scrollImages from "@/public/data/scroll.json";
+import scrollImages from "@/lib/data/scroll.json";
 
 type ScrollImage = {
   img: string;

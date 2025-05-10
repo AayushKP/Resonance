@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import coordinators from "@/public/data/coordinators.json";
+import coordinators from "@/lib/data/coordinators.json";
 import Image from "next/image";
 
 export default function HorizontalScroll() {

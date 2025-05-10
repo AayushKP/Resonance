@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import achievements from "@/public/data/achievements.json";
+import achievements from "@/lib/data/achievements.json";
 
 const hoverVariants = {
   scale: 1.02,
