@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://resonance-beta.vercel.app
+
+# Sitemaps
+Sitemap: https://resonance-beta.vercel.app/sitemap.xml
