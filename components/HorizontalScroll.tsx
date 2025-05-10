@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import coordinators from "@/lib/data/coordinators.json";
 import Image from "next/image";
@@ -19,6 +19,15 @@ export default function HorizontalScroll() {
       });
     }
   };
+  useEffect(() => {
+    if (scrollRef.current) {
+      const scrollContainer = scrollRef.current;
+      const scrollWidth = scrollContainer.scrollWidth;
+      const clientWidth = scrollContainer.clientWidth;
+
+      scrollContainer.scrollLeft = (scrollWidth - clientWidth) / 4;
+    }
+  }, []);
 
   return (
     <div className="relative w-full">
