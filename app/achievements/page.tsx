@@ -23,7 +23,7 @@ const restVariants = {
 
 export default function Achievements() {
   return (
-    <div className="min-h-screen w-full px-5 lg:px-20 bg-transparent pt-32 flex flex-col items-center justify-center">
+    <div className="min-h-screen w-full px-4 lg:px-20 bg-transparent pt-32 flex flex-col items-center justify-center">
       {achievements.map((achievement, idx) => {
         const event = achievement.event;
         const participants = achievement.participants;
