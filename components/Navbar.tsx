@@ -52,12 +52,14 @@ const Navbar = () => {
             className={clsx("cursor-pointer", {
               "text-yellow-400": pathname === path,
             })}
+            prefetch={true}
           >
             {label}
           </Link>
         ))}
         <Link
           href="/achievements"
+          prefetch={true}
           className={clsx(
             "cursor-pointer bg-gradient-to-r from-yellow-800 via-yellow-500 to-yellow-900 text-center py-1 px-3 rounded-lg",
             {
@@ -80,6 +82,7 @@ const Navbar = () => {
           >
             {routes.map(({ path, label }) => (
               <Link
+                prefetch={true}
                 key={path}
                 href={path}
                 onClick={() => setIsMenuOpen(false)}
@@ -92,6 +95,7 @@ const Navbar = () => {
             ))}
             <Link
               href="/achievements"
+              prefetch={true}
               onClick={() => setIsMenuOpen(false)}
               className="cursor-pointer bg-gradient-to-r from-yellow-800 via-yellow-500 to-yellow-900 text-center py-1 px-3 rounded-lg"
             >
