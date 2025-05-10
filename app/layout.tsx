@@ -17,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black">
+        <Analytics />
         <div
           className="fixed inset-0 z-[-10] bg-cover bg-center "
           style={{ backgroundImage: "url('/images/background.png')" }}
