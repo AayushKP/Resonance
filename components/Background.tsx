@@ -10,9 +10,21 @@ type Star = {
   opacity: number;
 };
 
+type Note = {
+  x: number;
+  y: number;
+  speedX: number;
+  speedY: number;
+  size: number;
+  opacity: number;
+  rotation: number;
+  rotationSpeed: number;
+};
+
 export default function Background() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stars = useRef<Star[]>([]);
+  const notes = useRef<Note[]>([]);
   const pointer = useRef({ x: 0, y: 0 });
 
   const createStars = (count: number, width: number, height: number) => {
@@ -57,6 +69,19 @@ export default function Background() {
     stars.current = newStars;
   };
 
+  const createNotes = (count: number, width: number, height: number) => {
+    notes.current = Array.from({ length: count }).map(() => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      speedX: (Math.random() - 0.5) * 0.4,
+      speedY: (Math.random() - 0.5) * 0.4,
+      size: Math.random() * 16 + 12,
+      opacity: Math.random() * 0.6 + 0.4,
+      rotation: Math.random() * 2 * Math.PI,
+      rotationSpeed: (Math.random() - 0.5) * 0.01,
+    }));
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -66,30 +91,27 @@ export default function Background() {
     const dpr = window.devicePixelRatio || 1;
 
     const setCanvasSize = () => {
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(dpr, dpr);
+
+      const isMobile = width < 768;
+
+      const starCount = isMobile ? 1000 : 2000;
+      const noteCount = isMobile ? 50 : 90;
+
+      createStars(starCount, width, height);
+      createNotes(noteCount, width, height);
     };
 
     setCanvasSize();
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
-    createStars(2000, window.innerWidth, window.innerHeight);
-
-    const noteCount = 90;
-    const notes = Array.from({ length: noteCount }).map(() => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      speedX: (Math.random() - 0.5) * 0.4,
-      speedY: (Math.random() - 0.5) * 0.4,
-      size: Math.random() * 16 + 12,
-      opacity: Math.random() * 0.6 + 0.4,
-      rotation: Math.random() * 2 * Math.PI,
-      rotationSpeed: (Math.random() - 0.5) * 0.01,
-    }));
 
     const musicNoteImg = new Image();
     musicNoteImg.src = "/music-note.png";
@@ -139,7 +161,7 @@ export default function Background() {
           ctx.fill();
         });
 
-        notes.forEach((note) => {
+        notes.current.forEach((note) => {
           note.x += note.speedX;
           note.y += note.speedY;
           note.rotation += note.rotationSpeed;
@@ -197,9 +219,9 @@ export default function Background() {
 
     const updatePointer = (e: MouseEvent | TouchEvent) => {
       const clientX =
-        (e instanceof TouchEvent ? e.touches[0]?.clientX : e.clientX) || 0;
+        e instanceof TouchEvent ? e.touches[0]?.clientX : e.clientX || 0;
       const clientY =
-        (e instanceof TouchEvent ? e.touches[0]?.clientY : e.clientY) || 0;
+        e instanceof TouchEvent ? e.touches[0]?.clientY : e.clientY || 0;
       pointer.current.x = clientX;
       pointer.current.y = clientY;
     };
