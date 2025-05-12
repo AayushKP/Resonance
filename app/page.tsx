@@ -65,10 +65,7 @@ export default function Home() {
           </motion.section>
 
           <motion.section
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
             className="relative mt-5 py-10"
           >
             <div className="absolute inset-0 bg-black/10 backdrop-blur-md rounded-xl z-0" />
