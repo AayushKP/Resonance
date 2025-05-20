@@ -35,7 +35,7 @@ export default function Home() {
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.8 }}
-                  className="text-6xl md:text-8xl xl:text-8xl 2xl:text-9xl text-metal font-cinzel-decorative mb-1 md:tracking-widest"
+                  className="text-5xl md:text-8xl xl:text-8xl 2xl:text-9xl text-metal font-cinzel-decorative mb-1 md:tracking-widest"
                 >
                   Resonance
                 </motion.h1>
@@ -45,7 +45,7 @@ export default function Home() {
                   transition={{ delay: 0.4 }}
                   className="w-full flex justify-center"
                 >
-                  <p className="text-2xl md:text-4xl max-w-2xl text-white tracking-tight opacity-90 font-sanskrit text-center">
+                  <p className="text-lg md:text-4xl max-w-2xl text-white tracking-tight opacity-90 font-sanskrit text-center">
                     <span>The Official Music Club of </span>
                     <span className="font-serif">HITK</span>
                   </p>
@@ -71,7 +71,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/10 backdrop-blur-md rounded-xl z-0" />
             <div className="relative z-10 lg:px-20">
               <div className="text-center">
-                <h2 className="text-4xl md:text-6xl font-cinzel-decorative mb-4 items-center">
+                <h2 className="text-3xl md:text-6xl font-cinzel-decorative mb-4 items-center">
                   About <span className="text-metal">Resonance</span>
                 </h2>
               </div>
@@ -98,7 +98,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  <p className="text-xl 2xl:text-2xl font-montserrat text-justify text-white leading-relaxed px-3 md:px-5">
+                  <p className="text-lg 2xl:text-2xl font-montserrat text-justify text-white leading-relaxed px-3 md:px-5">
                     <span className="text-metal">Resonance</span> is more than
                     just a music club, it&apos;s a{" "}
                     <span className="text-metal">community of musicians</span>{" "}
@@ -135,7 +135,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="flex flex-col justify-start items-center mt-20"
           >
-            <div className="font-cinzel-decorative text-4xl md:text-5xl xxl:text-6xl text-center">
+            <div className="font-cinzel-decorative text-3xl md:text-5xl xxl:text-6xl text-center">
               NOTABLE <span className="text-metal">ALUMNI</span>
             </div>
 
@@ -167,7 +167,7 @@ export default function Home() {
                   </motion.div>
 
                   <div className="text-center mt-3">
-                    <div className="bg-white/10 backdrop-blur-sm p-2 px-3 rounded-md text-sm md:text-base font-cinzel-decorative text-white">
+                    <div className="bg-white/10 backdrop-blur-sm p-2 px-3 rounded-md text-xs md:text-base font-cinzel-decorative text-white">
                       {alum.name}
                     </div>
                   </div>
@@ -187,7 +187,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="flex flex-col justify-start items-center mt-20"
           >
-            <div className="font-cinzel-decorative text-4xl md:text-5xl xxl:text-6xl">
+            <div className="font-cinzel-decorative text-3xl md:text-5xl xxl:text-6xl">
               FACULTY <span className="text-metal">COORDINATORS</span>
             </div>
 
@@ -214,7 +214,7 @@ export default function Home() {
                       isOdd ? "md:flex-row-reverse" : ""
                     } items-center gap-4`}
                   >
-                    <div className="w-32 h-32 md:w-52 md:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative shrink-0">
+                    <div className="w-28 h-28 md:w-52 md:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative shrink-0">
                       <Image
                         priority
                         src={coordinator.src}
@@ -224,8 +224,8 @@ export default function Home() {
                       />
                     </div>
 
-                    <div className="w-72 md:w-80 flex flex-col cursor-pointer justify-center h-32 md:h-44 py-3 gap-1 rounded-xl backdrop-blur-xl bg-black/10 border px-4 transform transition-transform duration-500 hover:scale-105 ease-in-out">
-                      <div className="text-lg whitespace-normal font-cinzel-decorative overflow-hidden">
+                    <div className="w-64 md:w-80 flex flex-col cursor-pointer justify-center h-32 md:h-44 py-3 gap-1 rounded-xl backdrop-blur-xl bg-black/10 border px-4 transform transition-transform duration-500 hover:scale-105 ease-in-out">
+                      <div className="text-md whitespace-normal font-cinzel-decorative overflow-hidden">
                         {coordinator.name}
                       </div>
                       <a href={`mailto:${coordinator.mail}`}>
@@ -245,7 +245,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mt-14 text-4xl md:text-6xl font-cinzel-decorative w-full mb-10"
+            className="mt-14 text-3xl md:text-6xl font-cinzel-decorative w-full mb-10"
           >
             CO<span className="text-metal">ORDINATORS</span>
             <div className="flex flex-col items-center justify-center gap-10 py-10 px-4">
@@ -301,11 +301,11 @@ export default function Home() {
           </motion.section>
         </main>
         <footer className="w-full backdrop-blur-xl bg-black/20 p-5 flex flex-col items-center gap-5 font-cinzel-decorative text-white relative">
-          <div className="text-3xl">
+          <div className="text-2xl">
             Contact <span className="text-metal">Us</span>
           </div>
 
-          <div className="flex flex-col items-center gap-4 text-sm">
+          <div className="flex flex-col items-center gap-4 text-xs">
             <div className="flex flex-wrap justify-center gap-4">
               {coordinators.slice(0, 7).map((coordinator, index) => (
                 <a
@@ -362,7 +362,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="text-sm font-montserrat ">&copy; Resonance 2025</div>
+          <div className="text-xs font-montserrat ">&copy; Resonance 2025</div>
         </footer>
       </div>
     </>
