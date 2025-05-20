@@ -46,7 +46,7 @@ export default function HorizontalScroll() {
         <div className="flex flex-row gap-6 w-max">
           {coordinators.map((coordinator, i) => (
             <div key={i} className="flex flex-row items-center gap-6 px-2">
-              <div className="w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative">
+              <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative">
                 <Image
                   priority
                   src={coordinator.src}
@@ -55,11 +55,11 @@ export default function HorizontalScroll() {
                   className="object-cover"
                 />
               </div>
-              <div className="w-80 flex flex-col cursor-pointer justify-center h-44 py-3 gap-1 rounded-xl backdrop-blur-lg bg-black/10 border px-4 transform transition-transform duration-500 hover:scale-105 ease-in-out">
+              <div className="w-80 flex flex-col cursor-pointer justify-center h-40 py-4 gap-1 rounded-xl backdrop-blur-lg bg-black/10 border px-4 transform transition-transform duration-500 hover:scale-105 ease-in-out">
                 <div className="text-lg whitespace-normal font-cinzel-decorative overflow-hidden">
                   {coordinator.name}
                 </div>
-                <div className="text-sm font-cinzel-decorative-bold text-metal whitespace-normal overflow-hidden">
+                <div className="text-xs font-cinzel-decorative-bold text-metal whitespace-normal overflow-hidden">
                   {coordinator.role}
                 </div>
                 <div className="text-xs text-white font-montserrat whitespace-normal overflow-hidden">

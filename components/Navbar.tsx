@@ -44,7 +44,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className="hidden lg:flex items-center space-x-6 text-white font-cinzel-decorative tracking-widest text-md">
+      <div className="hidden text-sm lg:flex items-center space-x-6 text-white font-cinzel-decorative tracking-widest">
         {routes.map(({ path, label }) => (
           <Link
             key={path}

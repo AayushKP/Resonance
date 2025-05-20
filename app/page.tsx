@@ -98,7 +98,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  <p className="text-lg 2xl:text-2xl font-montserrat text-justify text-white leading-relaxed px-3 md:px-5">
+                  <p className="text-md 2xl:text-2xl font-montserrat text-justify text-white leading-relaxed px-3 md:px-5">
                     <span className="text-metal">Resonance</span> is more than
                     just a music club, it&apos;s a{" "}
                     <span className="text-metal">community of musicians</span>{" "}
@@ -133,13 +133,13 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-start items-center mt-20"
+            className="flex flex-col justify-start items-center mt-16 sm:mt-20"
           >
             <div className="font-cinzel-decorative text-3xl md:text-5xl xxl:text-6xl text-center">
               NOTABLE <span className="text-metal">ALUMNI</span>
             </div>
 
-            <div className="flex flex-wrap lg:flex-nowrap justify-center gap-6 py-8 px-4 overflow-x-auto lg:overflow-x-visible">
+            <div className="flex flex-wrap lg:flex-nowrap justify-center gap-3 py-8 px-2 overflow-x-auto lg:overflow-x-visible">
               {alumni.map((alum, index) => (
                 <motion.div
                   key={`alum-${index}`}
@@ -147,14 +147,14 @@ export default function Home() {
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex-shrink-0 flex flex-col items-center w-28 md:w-32 lg:w-44"
+                  className="flex-shrink-0 flex flex-col items-center w-20 md:w-32 lg:w-44"
                 >
                   <motion.div
                     whileHover={{
                       scale: 1.05,
                       transition: { duration: 0.3, ease: "easeInOut" },
                     }}
-                    className="group w-28 h-28 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden cursor-pointer"
+                    className="group w-20 h-20 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden cursor-pointer"
                   >
                     <Image
                       priority
@@ -185,7 +185,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-start items-center mt-20"
+            className="flex flex-col justify-start items-center mt-10 sm:mt-20"
           >
             <div className="font-cinzel-decorative text-3xl md:text-5xl xxl:text-6xl">
               FACULTY <span className="text-metal">COORDINATORS</span>
@@ -214,7 +214,7 @@ export default function Home() {
                       isOdd ? "md:flex-row-reverse" : ""
                     } items-center gap-4`}
                   >
-                    <div className="w-28 h-28 md:w-52 md:h-52 rounded-full overflow-hidden outline-2 outline-offset-1 outline-white/80 relative shrink-0">
+                    <div className="w-28 h-28 md:w-52 md:h-52 rounded-full overflow-hidden outline-1 outline-offset-1 outline-white/80 relative shrink-0">
                       <Image
                         priority
                         src={coordinator.src}
@@ -245,10 +245,10 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mt-14 text-3xl md:text-6xl font-cinzel-decorative w-full mb-10"
+            className="mt-14 text-3xl md:text-6xl font-cinzel-decorative w-full mb-8  sm:mb-10"
           >
             CO<span className="text-metal">ORDINATORS</span>
-            <div className="flex flex-col items-center justify-center gap-10 py-10 px-4">
+            <div className="flex flex-col items-center justify-center gap-10 py-10 px-2">
               <div className="flex flex-wrap justify-center gap-6 relative">
                 {coordinators
                   .slice(0, Math.ceil(coordinators.length / 2))
@@ -259,7 +259,7 @@ export default function Home() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: i * 0.05 }}
-                      className="w-28 h-28 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden"
+                      className="w-20 h-20 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden"
                     >
                       <Image
                         priority
@@ -283,7 +283,7 @@ export default function Home() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: i * 0.05 }}
-                      className="w-28 h-28 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden"
+                      className="w-20 h-20 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden"
                     >
                       <Image
                         priority
