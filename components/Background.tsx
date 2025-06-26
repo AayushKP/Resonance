@@ -84,7 +84,7 @@ export default function Background() {
         y: Math.random() * height,
         speedX: (Math.random() - 0.5) * 0.4,
         speedY: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 16 + 12,
+        size: Math.random() * 8 + 8,
         opacity: Math.random() * 0.6 + 0.4,
         rotation: Math.random() * 2 * Math.PI,
         rotationSpeed: (Math.random() - 0.5) * 0.01,
