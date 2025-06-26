@@ -37,7 +37,7 @@ export default function Home() {
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.8 }}
-                  className="text-5xl md:text-8xl xl:text-8xl 2xl:text-9xl text-metal font-cinzel-decorative mb-1 md:tracking-widest"
+                  className="text-5xl md:text-8xl 2xl:text-9xl text-metal font-cinzel-decorative mb-1 md:tracking-widest"
                 >
                   Resonance
                 </motion.h1>
