@@ -27,7 +27,11 @@ export default function Background() {
   const notes = useRef<Note[]>([]);
   const pointer = useRef({ x: 0, y: 0 });
 
-  const createStars = (count: number, width: number, height: number) => {
+  const createStars = (
+    count: number,
+    width: number,
+    height: number
+  ) => {
     const newStars: Star[] = [];
     for (let i = 0; i < count; i++) {
       const isSideParticle = i < count * 0.1;
@@ -69,17 +73,23 @@ export default function Background() {
     stars.current = newStars;
   };
 
-  const createNotes = (count: number, width: number, height: number) => {
-    notes.current = Array.from({ length: count }).map(() => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      speedX: (Math.random() - 0.5) * 0.4,
-      speedY: (Math.random() - 0.5) * 0.4,
-      size: Math.random() * 16 + 12,
-      opacity: Math.random() * 0.6 + 0.4,
-      rotation: Math.random() * 2 * Math.PI,
-      rotationSpeed: (Math.random() - 0.5) * 0.01,
-    }));
+  const createNotes = (
+    count: number,
+    width: number,
+    height: number
+  ) => {
+    notes.current = Array.from({ length: count }).map(
+      () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        speedX: (Math.random() - 0.5) * 0.4,
+        speedY: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 16 + 12,
+        opacity: Math.random() * 0.6 + 0.4,
+        rotation: Math.random() * 2 * Math.PI,
+        rotationSpeed: (Math.random() - 0.5) * 0.01,
+      })
+    );
   };
 
   useEffect(() => {
@@ -102,8 +112,8 @@ export default function Background() {
 
       const isMobile = width < 768;
 
-      const starCount = isMobile ? 1000 : 2300;
-      const noteCount = isMobile ? 35 : 80;
+      const starCount = isMobile ? 800 : 2300;
+      const noteCount = isMobile ? 25 : 35;
 
       createStars(starCount, width, height);
       createNotes(noteCount, width, height);
@@ -137,7 +147,9 @@ export default function Background() {
         );
         nebulaGradient.addColorStop(
           0,
-          isMobile ? "rgba(47, 45, 189, 0.3)" : "rgba(47, 45, 189, 0.2)"
+          isMobile
+            ? "rgba(47, 45, 189, 0.3)"
+            : "rgba(47, 45, 189, 0.2)"
         );
         nebulaGradient.addColorStop(1, "rgba(0, 0, 0, 0)");
 
@@ -153,10 +165,19 @@ export default function Background() {
           if (star.y > canvas.height) star.y = 0;
 
           star.opacity += (Math.random() - 0.5) * 0.1;
-          star.opacity = Math.max(0.3, Math.min(1, star.opacity));
+          star.opacity = Math.max(
+            0.3,
+            Math.min(1, star.opacity)
+          );
 
           ctx.beginPath();
-          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.arc(
+            star.x,
+            star.y,
+            star.radius,
+            0,
+            Math.PI * 2
+          );
           ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
           ctx.fill();
         });
@@ -186,7 +207,8 @@ export default function Background() {
           ctx.globalAlpha = 1;
         });
 
-        const glowRadius = window.innerWidth > 1280 ? 80 : 120;
+        const glowRadius =
+          window.innerWidth > 1280 ? 80 : 120;
         const glow = ctx.createRadialGradient(
           pointer.current.x,
           pointer.current.y,
@@ -219,9 +241,13 @@ export default function Background() {
 
     const updatePointer = (e: MouseEvent | TouchEvent) => {
       const clientX =
-        e instanceof TouchEvent ? e.touches[0]?.clientX : e.clientX || 0;
+        e instanceof TouchEvent
+          ? e.touches[0]?.clientX
+          : e.clientX || 0;
       const clientY =
-        e instanceof TouchEvent ? e.touches[0]?.clientY : e.clientY || 0;
+        e instanceof TouchEvent
+          ? e.touches[0]?.clientY
+          : e.clientY || 0;
       pointer.current.x = clientX;
       pointer.current.y = clientY;
     };
@@ -231,8 +257,14 @@ export default function Background() {
     window.addEventListener("resize", setCanvasSize);
 
     return () => {
-      window.removeEventListener("mousemove", updatePointer);
-      window.removeEventListener("touchmove", updatePointer);
+      window.removeEventListener(
+        "mousemove",
+        updatePointer
+      );
+      window.removeEventListener(
+        "touchmove",
+        updatePointer
+      );
       window.removeEventListener("resize", setCanvasSize);
     };
   }, []);

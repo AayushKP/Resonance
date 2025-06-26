@@ -15,7 +15,9 @@ export default function Home() {
     <>
       <Head>
         <meta name="robots" content="index, follow" />
-        <title>Resonance - Official Music Club of HITK</title>
+        <title>
+          Resonance - Official Music Club of HITK
+        </title>
         <meta
           name="description"
           content="This is the official website of the music club of Heritage Institute of Technology,Kolkata (HITK)"
@@ -72,7 +74,10 @@ export default function Home() {
             <div className="relative z-10 lg:px-20">
               <div className="text-center">
                 <h2 className="text-3xl md:text-6xl font-cinzel-decorative mb-4 items-center">
-                  About <span className="text-metal">Resonance</span>
+                  About{" "}
+                  <span className="text-metal">
+                    Resonance
+                  </span>
                 </h2>
               </div>
               <div className="grid grid-rows-1 lg:grid-cols-2 lg:items-center gap-0 md:gap-2">
@@ -98,26 +103,37 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  <p className="text-md 2xl:text-2xl font-montserrat text-justify text-white leading-relaxed px-3 md:px-5">
-                    <span className="text-metal">Resonance</span> is more than
-                    just a music club, it&apos;s a{" "}
-                    <span className="text-metal">community of musicians</span>{" "}
-                    who live for their craft. Whether you&apos;re into vocals or
-                    instruments, bands or solo acts, this is where you&apos;ll
-                    find people who understand your passion. At Resonance,{" "}
+                  <p className="text-md md:text-lg 2xl:text-2xl font-montserrat text-justify text-white leading-relaxed px-3 md:px-5">
+                    <span className="text-metal">
+                      Resonance
+                    </span>{" "}
+                    is more than just a music club,
+                    it&apos;s a{" "}
+                    <span className="text-metal">
+                      community of musicians
+                    </span>{" "}
+                    who live for their craft. Whether
+                    you&apos;re into vocals or instruments,
+                    bands or solo acts, this is where
+                    you&apos;ll find people who understand
+                    your passion. At Resonance,{" "}
                     <span className="text-metal">
                       we push each other to grow
                     </span>
-                    , to perform, and to create something meaningful together.
-                    Over the years, we&apos;ve performed and won at some of the
-                    biggest college fests like{" "}
+                    , to perform, and to create something
+                    meaningful together. Over the years,
+                    we&apos;ve performed and won at some of
+                    the biggest college fests like{" "}
                     <span className="text-metal">
-                      IIT Kharagpur, CNMC AGON, Jadavpur Sanskriti,
+                      IIT Kharagpur, CNMC AGON, Jadavpur
+                      Sanskriti,
                     </span>{" "}
-                    and more. But beyond the achievements, what defines us is
-                    the bond we share through music. If you&apos;re serious
-                    about music, eager to collaborate, and ready to be part of
-                    something bigger, then{" "}
+                    and more. But beyond the achievements,
+                    what defines us is the bond we share
+                    through music. If you&apos;re serious
+                    about music, eager to collaborate, and
+                    ready to be part of something bigger,
+                    then{" "}
                     <span className="text-metal">
                       Resonance is where you belong
                     </span>
@@ -136,30 +152,49 @@ export default function Home() {
             className="flex flex-col justify-start items-center mt-16 sm:mt-20"
           >
             <div className="font-cinzel-decorative text-3xl md:text-5xl xxl:text-6xl text-center">
-              NOTABLE <span className="text-metal">ALUMNI</span>
+              NOTABLE{" "}
+              <span className="text-metal">ALUMNI</span>
             </div>
 
-            <div className="flex flex-wrap lg:flex-nowrap justify-center gap-3 py-8 px-2 overflow-x-auto lg:overflow-x-visible">
+            <div className="grid grid-cols-3 gap-4 md:flex md:justify-center md:gap-6 py-8 px-2">
               {alumni.map((alum, index) => (
                 <motion.div
                   key={`alum-${index}`}
-                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  initial={{
+                    opacity: 0,
+                    scale: 0.9,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                  }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex-shrink-0 flex flex-col items-center w-20 md:w-32 lg:w-44"
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                  }}
+                  className="flex-shrink-0 flex flex-col items-center w-full md:w-1/6"
                 >
                   <motion.div
                     whileHover={{
                       scale: 1.05,
-                      transition: { duration: 0.3, ease: "easeInOut" },
+                      transition: {
+                        duration: 0.3,
+                        ease: "easeInOut",
+                      },
                     }}
-                    className="group w-20 h-20 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden cursor-pointer"
+                    className="group w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full bg-transparent relative overflow-hidden cursor-pointer"
                   >
                     <Image
                       priority
                       src={alum.src}
-                      alt={alum.alt || alum.name || `Alumni ${index + 1}`}
+                      alt={
+                        alum.alt ||
+                        alum.name ||
+                        `Alumni ${index + 1}`
+                      }
                       fill
                       className="object-cover rounded-full"
                     />
@@ -167,7 +202,7 @@ export default function Home() {
                   </motion.div>
 
                   <div className="text-center mt-3">
-                    <div className="bg-white/10 backdrop-blur-sm p-2 px-3 rounded-md text-xs md:text-base font-cinzel-decorative text-white">
+                    <div className="bg-white/10 backdrop-blur-sm p-2 px-3 rounded-md text-xs md:text-sm lg:text-base font-cinzel-decorative text-white">
                       {alum.name}
                     </div>
                   </div>
@@ -177,7 +212,8 @@ export default function Home() {
           </motion.section>
 
           <VelocityScroll>
-            Resonance <span className="text-metal">2025</span>
+            Resonance{" "}
+            <span className="text-metal">2025</span>
           </VelocityScroll>
 
           <motion.section
@@ -188,55 +224,68 @@ export default function Home() {
             className="flex flex-col justify-start items-center mt-10 sm:mt-20"
           >
             <div className="font-cinzel-decorative text-3xl md:text-5xl xxl:text-6xl">
-              FACULTY <span className="text-metal">COORDINATORS</span>
+              FACULTY{" "}
+              <span className="text-metal">
+                COORDINATORS
+              </span>
             </div>
 
             <div className="flex flex-wrap justify-center gap-8 pt-10">
-              {teacherCoordinator.map((coordinator, index) => {
-                const isOdd = index % 2 === 1;
+              {teacherCoordinator.map(
+                (coordinator, index) => {
+                  const isOdd = index % 2 === 1;
 
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{
-                      opacity: 0,
-                      y: 40,
-                      x: isOdd ? 80 : -80,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                      x: 0,
-                    }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className={`flex flex-col md:flex-row ${
-                      isOdd ? "md:flex-row-reverse" : ""
-                    } items-center gap-4`}
-                  >
-                    <div className="w-28 h-28 md:w-52 md:h-52 rounded-full overflow-hidden outline-1 outline-offset-1 outline-white/80 relative shrink-0">
-                      <Image
-                        priority
-                        src={coordinator.src}
-                        alt={coordinator.alt || `Coordinator ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-
-                    <div className="w-64 md:w-80 flex flex-col cursor-pointer justify-center h-32 md:h-44 py-3 gap-1 rounded-xl backdrop-blur-xl bg-black/10 border px-4 transform transition-transform duration-500 hover:scale-105 ease-in-out">
-                      <div className="text-md whitespace-normal font-cinzel-decorative overflow-hidden">
-                        {coordinator.name}
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{
+                        opacity: 0,
+                        y: 40,
+                        x: isOdd ? 80 : -80,
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        x: 0,
+                      }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.8,
+                        ease: "easeOut",
+                      }}
+                      className={`flex flex-col md:flex-row ${
+                        isOdd ? "md:flex-row-reverse" : ""
+                      } items-center gap-4`}
+                    >
+                      <div className="w-28 h-28 md:w-52 md:h-52 rounded-full overflow-hidden outline-1 outline-offset-1 outline-white/80 relative shrink-0">
+                        <Image
+                          priority
+                          src={coordinator.src}
+                          alt={
+                            coordinator.alt ||
+                            `Coordinator ${index + 1}`
+                          }
+                          fill
+                          className="object-cover"
+                        />
                       </div>
-                      <a href={`mailto:${coordinator.mail}`}>
-                        <div className="text-xs tracking-wider text-metal whitespace-normal font-Montserrat overflow-hidden">
-                          {coordinator.mail}
+
+                      <div className="w-64 md:w-80 flex flex-col cursor-pointer justify-center h-32 md:h-44 py-3 gap-1 rounded-xl backdrop-blur-xl bg-black/10 border px-4 transform transition-transform duration-500 hover:scale-105 ease-in-out">
+                        <div className="text-md whitespace-normal font-cinzel-decorative overflow-hidden">
+                          {coordinator.name}
                         </div>
-                      </a>
-                    </div>
-                  </motion.div>
-                );
-              })}
+                        <a
+                          href={`mailto:${coordinator.mail}`}
+                        >
+                          <div className="text-xs tracking-wider text-metal whitespace-normal font-Montserrat overflow-hidden">
+                            {coordinator.mail}
+                          </div>
+                        </a>
+                      </div>
+                    </motion.div>
+                  );
+                }
+              )}
             </div>
           </motion.section>
 
@@ -251,14 +300,20 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center gap-10 py-10 px-2">
               <div className="flex flex-wrap justify-center gap-6 relative">
                 {coordinators
-                  .slice(0, Math.ceil(coordinators.length / 2))
+                  .slice(
+                    0,
+                    Math.ceil(coordinators.length / 2)
+                  )
                   .map((coordinator, i) => (
                     <motion.div
                       key={`c1-${i}`}
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: i * 0.05 }}
+                      transition={{
+                        duration: 0.6,
+                        delay: i * 0.05,
+                      }}
                       className="w-20 h-20 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden"
                     >
                       <Image
@@ -282,7 +337,10 @@ export default function Home() {
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: i * 0.05 }}
+                      transition={{
+                        duration: 0.6,
+                        delay: i * 0.05,
+                      }}
                       className="w-20 h-20 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden"
                     >
                       <Image
@@ -307,28 +365,32 @@ export default function Home() {
 
           <div className="flex flex-col items-center gap-4 text-xs">
             <div className="flex flex-wrap justify-center gap-4">
-              {coordinators.slice(0, 7).map((coordinator, index) => (
-                <a
-                  key={index}
-                  href={`mailto:${coordinator.mail}`}
-                  target="_blank"
-                  className="cursor-pointer hover:text-yellow-500"
-                >
-                  {coordinator.name}
-                </a>
-              ))}
+              {coordinators
+                .slice(0, 7)
+                .map((coordinator, index) => (
+                  <a
+                    key={index}
+                    href={`mailto:${coordinator.mail}`}
+                    target="_blank"
+                    className="cursor-pointer hover:text-yellow-500"
+                  >
+                    {coordinator.name}
+                  </a>
+                ))}
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              {coordinators.slice(7, 10).map((coordinator, index) => (
-                <a
-                  key={index + 7}
-                  href={`mailto:${coordinator.mail}`}
-                  target="_blank"
-                  className="cursor-pointer hover:text-yellow-500"
-                >
-                  {coordinator.name}
-                </a>
-              ))}
+              {coordinators
+                .slice(7, 10)
+                .map((coordinator, index) => (
+                  <a
+                    key={index + 7}
+                    href={`mailto:${coordinator.mail}`}
+                    target="_blank"
+                    className="cursor-pointer hover:text-yellow-500"
+                  >
+                    {coordinator.name}
+                  </a>
+                ))}
             </div>
           </div>
 
@@ -362,7 +424,9 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="text-xs font-montserrat ">&copy; Resonance 2025</div>
+          <div className="text-xs font-montserrat ">
+            &copy; Resonance 2025
+          </div>
         </footer>
       </div>
     </>
