@@ -112,8 +112,8 @@ export default function Background() {
 
       const isMobile = width < 768;
 
-      const starCount = isMobile ? 1300 : 2300;
-      const noteCount = isMobile ? 20 : 35;
+      const starCount = isMobile ? 1000 : 1900;
+      const noteCount = isMobile ? 20 : 55;
 
       createStars(starCount, width, height);
       createNotes(noteCount, width, height);

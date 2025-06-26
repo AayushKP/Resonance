@@ -13,20 +13,29 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface VelocityScrollProps extends React.HTMLAttributes<HTMLDivElement> {
+interface VelocityScrollProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   defaultVelocity?: number;
   className?: string;
   numRows?: number;
 }
 
-interface ParallaxProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ParallaxProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   baseVelocity: number;
 }
 
-export const wrap = (min: number, max: number, v: number) => {
+export const wrap = (
+  min: number,
+  max: number,
+  v: number
+) => {
   const rangeSize = max - min;
-  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
+  return (
+    ((((v - min) % rangeSize) + rangeSize) % rangeSize) +
+    min
+  );
 };
 
 function ParallaxText({
@@ -42,9 +51,14 @@ function ParallaxText({
     stiffness: 400,
   });
 
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false,
-  });
+  const velocityFactor = useTransform(
+    smoothVelocity,
+    [0, 1000],
+    [0, 5],
+    {
+      clamp: false,
+    }
+  );
 
   const [repetitions, setRepetitions] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -53,9 +67,11 @@ function ParallaxText({
   useEffect(() => {
     const calculateRepetitions = () => {
       if (containerRef.current && textRef.current) {
-        const containerWidth = containerRef.current.offsetWidth;
+        const containerWidth =
+          containerRef.current.offsetWidth;
         const textWidth = textRef.current.offsetWidth;
-        const newRepetitions = Math.ceil(containerWidth / textWidth) + 2;
+        const newRepetitions =
+          Math.ceil(containerWidth / textWidth) + 2;
         setRepetitions(newRepetitions);
       }
     };
@@ -63,10 +79,17 @@ function ParallaxText({
     calculateRepetitions();
 
     window.addEventListener("resize", calculateRepetitions);
-    return () => window.removeEventListener("resize", calculateRepetitions);
+    return () =>
+      window.removeEventListener(
+        "resize",
+        calculateRepetitions
+      );
   }, [children]);
 
-  const x = useTransform(baseX, (v) => `${wrap(-100 / repetitions, 0, v)}%`);
+  const x = useTransform(
+    baseX,
+    (v) => `${wrap(-100 / repetitions, 0, v)}%`
+  );
 
   const directionFactor = React.useRef<number>(1);
   useAnimationFrame((t, delta) => {
@@ -74,7 +97,10 @@ function ParallaxText({
 
     if (Math.abs(velocity) < 0.01) return;
 
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+    let moveBy =
+      directionFactor.current *
+      baseVelocity *
+      (delta / 1000);
 
     directionFactor.current = velocity < 0 ? -1 : 1;
 
@@ -114,7 +140,7 @@ export function VelocityScroll({
   return (
     <div
       className={cn(
-        "relative w-full text-white/90 mt-10 sm:mt-20 text-3xl tracking-wide font-sanskrit md:text-5xl md:leading-[5rem]",
+        "relative w-full text-white/90 mt-10 sm:mt-20 text-3xl tracking-wide font-sanskrit md:text-4xl md:leading-[5rem]",
         className
       )}
       {...props}
@@ -122,7 +148,9 @@ export function VelocityScroll({
       {Array.from({ length: numRows }).map((_, i) => (
         <ParallaxText
           key={i}
-          baseVelocity={defaultVelocity * (i % 2 === 0 ? 1 : -1)}
+          baseVelocity={
+            defaultVelocity * (i % 2 === 0 ? 1 : -1)
+          }
         >
           {children}
         </ParallaxText>
