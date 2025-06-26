@@ -211,11 +211,6 @@ export default function Home() {
             </div>
           </motion.section>
 
-          <VelocityScroll>
-            Resonance{" "}
-            <span className="text-metal">2025</span>
-          </VelocityScroll>
-
           <motion.section
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
