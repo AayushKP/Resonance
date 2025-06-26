@@ -239,12 +239,10 @@ export default function Home() {
                     <motion.div
                       key={index}
                       initial={{
-                        opacity: 1,
                         y: 40,
                         x: isOdd ? 80 : -80,
                       }}
                       whileInView={{
-                        opacity: 1,
                         y: 0,
                         x: 0,
                       }}
@@ -297,11 +295,10 @@ export default function Home() {
             className="mt-14 text-3xl md:text-5xl font-cinzel-decorative w-full mb-8 sm:mb-10"
           >
             CO<span className="text-metal">ORDINATORS</span>
-            {/* Mobile layout (<sm) → 3-2-3-2 */}
             <div className="flex flex-col items-center justify-center gap-8 py-10 px-2 sm:hidden">
               {(() => {
                 const pattern = [3, 2];
-                let rows = [];
+                const rows = [];
                 let index = 0;
                 let count = 0;
 
