@@ -185,7 +185,7 @@ export default function Home() {
                         ease: "easeInOut",
                       },
                     }}
-                    className="group w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full bg-transparent relative overflow-hidden cursor-pointer"
+                    className="group w-28 h-28 lg:w-32 lg:h-32 rounded-full bg-transparent relative overflow-hidden cursor-pointer"
                   >
                     <Image
                       priority
@@ -239,7 +239,7 @@ export default function Home() {
                     <motion.div
                       key={index}
                       initial={{
-                        opacity: 0,
+                        opacity: 1,
                         y: 40,
                         x: isOdd ? 80 : -80,
                       }}
@@ -294,19 +294,71 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mt-14 text-3xl md:text-6xl font-cinzel-decorative w-full mb-8  sm:mb-10"
+            className="mt-14 text-3xl md:text-5xl font-cinzel-decorative w-full mb-8 sm:mb-10"
           >
             CO<span className="text-metal">ORDINATORS</span>
-            <div className="flex flex-col items-center justify-center gap-10 py-10 px-2">
-              <div className="flex flex-wrap justify-center gap-6 relative">
+            {/* Mobile layout (<sm) → 3-2-3-2 */}
+            <div className="flex flex-col items-center justify-center gap-8 py-10 px-2 sm:hidden">
+              {(() => {
+                const pattern = [3, 2];
+                let rows = [];
+                let index = 0;
+                let count = 0;
+
+                while (index < coordinators.length) {
+                  const groupSize =
+                    pattern[count % pattern.length];
+                  const group = coordinators.slice(
+                    index,
+                    index + groupSize
+                  );
+                  rows.push(group);
+                  index += groupSize;
+                  count++;
+                }
+
+                return rows.map((group, rowIndex) => (
+                  <div
+                    key={`mobile-row-${rowIndex}`}
+                    className="flex flex-wrap justify-center gap-4"
+                  >
+                    {group.map((coordinator, i) => (
+                      <motion.div
+                        key={`mobile-coord-${rowIndex}-${i}`}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{
+                          opacity: 1,
+                          scale: 1,
+                        }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.6,
+                          delay: i * 0.05,
+                        }}
+                        className="w-28 h-28 rounded-full bg-transparent relative overflow-hidden"
+                      >
+                        <Image
+                          priority
+                          src={coordinator.src}
+                          alt={coordinator.alt}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:bg-opacity-60" />
+                      </motion.div>
+                    ))}
+                  </div>
+                ));
+              })()}
+            </div>
+            {/* Desktop layout (≥sm) → 5 per row × 2 rows */}
+            <div className="hidden sm:flex flex-col items-center justify-center gap-10 py-10 px-2">
+              <div className="flex flex-wrap justify-center gap-6">
                 {coordinators
-                  .slice(
-                    0,
-                    Math.ceil(coordinators.length / 2)
-                  )
+                  .slice(0, 5)
                   .map((coordinator, i) => (
                     <motion.div
-                      key={`c1-${i}`}
+                      key={`desktop-1-${i}`}
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
@@ -314,7 +366,7 @@ export default function Home() {
                         duration: 0.6,
                         delay: i * 0.05,
                       }}
-                      className="w-20 h-20 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden"
+                      className="w-28 h-28 lg:w-36 lg:36 xl:w-40 xl:h-40 rounded-full bg-transparent relative overflow-hidden"
                     >
                       <Image
                         priority
@@ -330,10 +382,10 @@ export default function Home() {
 
               <div className="flex flex-wrap justify-center gap-6">
                 {coordinators
-                  .slice(Math.ceil(coordinators.length / 2))
+                  .slice(5)
                   .map((coordinator, i) => (
                     <motion.div
-                      key={`c2-${i}`}
+                      key={`desktop-2-${i}`}
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
@@ -341,7 +393,7 @@ export default function Home() {
                         duration: 0.6,
                         delay: i * 0.05,
                       }}
-                      className="w-20 h-20 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full bg-transparent relative overflow-hidden"
+                      className="w-28 h-28 lg:w-36 lg:36 xl:w-40 xl:h-40 rounded-full bg-transparent relative overflow-hidden"
                     >
                       <Image
                         priority
