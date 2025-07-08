@@ -393,7 +393,6 @@ export default function Home() {
                 ));
               })()}
             </div>
-            {/* Desktop layout (≥sm) → 5 per row × 2 rows */}
             <div className="hidden sm:flex flex-col items-center justify-center gap-10 py-10 px-2">
               <div className="flex flex-wrap justify-center gap-6">
                 {coordinators
@@ -490,7 +489,7 @@ export default function Home() {
 
           <div className="flex items-center gap-4">
             <a
-              href="mailto:otriyo.ghosh.ece26@hitk.edu.in"
+              href="mailto:resonance.hit@gmail.com"
               aria-label="Email"
               target="_blank"
             >

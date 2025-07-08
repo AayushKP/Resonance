@@ -44,7 +44,10 @@ export default function Events() {
               </CardDescription>
             </CardContent>
             <CardFooter className="space-x-4 font-montserrat">
-              <Button>Gallery</Button>
+              <a href="/gallery">
+                <Button>Gallery</Button>
+              </a>
+
               <a
                 href={event.playlistLink}
                 target="_blank"
