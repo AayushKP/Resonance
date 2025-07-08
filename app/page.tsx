@@ -20,7 +20,52 @@ export default function Home() {
         </title>
         <meta
           name="description"
-          content="This is the official website of the music club of Heritage Institute of Technology,Kolkata (HITK)"
+          content="This is the official website of the music club of Heritage Institute of Technology,Kolkata (HITK)."
+        />
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          property="og:title"
+          content="Resonance - Official Music Club of HITK"
+        />
+        <meta
+          property="og:description"
+          content="This is the official website of the music club of Heritage Institute of Technology,Kolkata (HITK)."
+        />
+        <meta
+          property="og:image"
+          content="https://resonance-beta.vercel.app/preview.png"
+        />
+        <meta
+          property="og:url"
+          content="https://resonance-beta.vercel.app"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          name="twitter:card"
+          content="summary_large_image"
+        />
+        <meta
+          name="twitter:title"
+          content="Resonance - Official Music Club of HITK"
+        />
+        <meta
+          name="twitter:description"
+          content="This is the official website of the music club of Heritage Institute of Technology,Kolkata (HITK)."
+        />
+        <meta
+          name="twitter:image"
+          content="https://resonance-beta.vercel.app/preview.png"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Resonance",
+              url: "https://resonance-beta.vercel.app",
+            }),
+          }}
         />
       </Head>
       <div className="relative min-h-screen overflow-hidden font-sans">
