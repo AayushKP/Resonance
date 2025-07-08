@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://resonance-beta.vercel.app
+Host: https://resonance-hitk.com
 
 # Sitemaps
-Sitemap: https://resonance-beta.vercel.app/sitemap.xml
+Sitemap: https://resonance-hitk.com/sitemap.xml

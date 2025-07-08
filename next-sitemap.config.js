@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://resonance-beta.vercel.app",
+  siteUrl: "https://resonance-hitk.com",
   generateRobotsTxt: true,
 };

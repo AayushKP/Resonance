@@ -15,12 +15,18 @@ export default function Home() {
     <>
       <Head>
         <meta name="robots" content="index, follow" />
+        <link
+          rel="canonical"
+          href="https://resonance-hitk.com"
+        />
         <title>
           Resonance - Official Music Club of HITK
         </title>
         <meta
           name="description"
-          content="This is the official website of the music club of Heritage Institute of Technology,Kolkata (HITK)."
+          content={
+            "This is the official website of the music club of Heritage Institute of Technology,Kolkata (HITK)."
+          }
         />
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -29,15 +35,21 @@ export default function Home() {
         />
         <meta
           property="og:description"
-          content="This is the official website of the music club of Heritage Institute of Technology,Kolkata (HITK)."
+          content={
+            "This is the official website of the music club of Heritage Institute of Technology,Kolkata (HITK)."
+          }
         />
         <meta
           property="og:image"
-          content="https://resonance-beta.vercel.app/preview.png"
+          content={"https://resonance-hitk.com/preview.png"}
         />
         <meta
           property="og:url"
-          content="https://resonance-beta.vercel.app"
+          content={"https://resonance-hitk.com"}
+        />
+        <meta
+          name="twitter:image"
+          content={"https://resonance-hitk.com/preview.png"}
         />
         <meta property="og:type" content="website" />
         <meta
@@ -52,10 +64,6 @@ export default function Home() {
           name="twitter:description"
           content="This is the official website of the music club of Heritage Institute of Technology,Kolkata (HITK)."
         />
-        <meta
-          name="twitter:image"
-          content="https://resonance-beta.vercel.app/preview.png"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -63,7 +71,7 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Resonance",
-              url: "https://resonance-beta.vercel.app",
+              url: "https://resonance-hitk.com",
             }),
           }}
         />
