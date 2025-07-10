@@ -41,7 +41,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content={"https://resonance-hitk.com/preview.png"}
+          content={"https://resonance-hitk.com/preview.jpg"}
         />
         <meta
           property="og:url"
@@ -49,7 +49,7 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content={"https://resonance-hitk.com/preview.png"}
+          content={"https://resonance-hitk.com/preview.jpg"}
         />
         <meta property="og:type" content="website" />
         <meta
@@ -72,6 +72,8 @@ export default function Home() {
               "@type": "WebSite",
               name: "Resonance",
               url: "https://resonance-hitk.com/",
+              image:
+                "https://resonance-hitk.com/preview.jpg",
             }),
           }}
         />
