@@ -17,7 +17,7 @@ export default function Home() {
         <meta name="robots" content="index, follow" />
         <link
           rel="canonical"
-          href="https://resonance-hitk.com"
+          href="https://resonance-hitk.com/"
         />
         <title>
           Resonance - Official Music Club of HITK
