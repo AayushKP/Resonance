@@ -45,7 +45,7 @@ export default function Home() {
         />
         <meta
           property="og:url"
-          content={"https://resonance-hitk.com"}
+          content={"https://resonance-hitk.com/"}
         />
         <meta
           name="twitter:image"
@@ -71,7 +71,7 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Resonance",
-              url: "https://resonance-hitk.com",
+              url: "https://resonance-hitk.com/",
             }),
           }}
         />
