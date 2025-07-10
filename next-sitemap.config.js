@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://resonance-hitk.com",
+  siteUrl: "https://resonance-hitk.com/",
   generateRobotsTxt: true,
 };

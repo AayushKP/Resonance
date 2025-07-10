@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://resonance-hitk.com
+Host: https://resonance-hitk.com/
 
 # Sitemaps
 Sitemap: https://resonance-hitk.com/sitemap.xml
