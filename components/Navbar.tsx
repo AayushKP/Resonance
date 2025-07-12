@@ -17,6 +17,7 @@ const Navbar = () => {
     { path: "/merch", label: "Merch" },
     { path: "/events", label: "Events" },
     { path: "/gallery", label: "Gallery" },
+    { path: "/cadence", label: "Cadence 2025" },
   ];
 
   return (
