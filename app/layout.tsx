@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Resonance - Music Club of HITK",
     description: "Explore the sounds and spirit of HITK's official music club.",
-    url: "https://resonance-beta.vercel.app",
+    url: "https://resonance-hitk.com",
     siteName: "Resonance",
     images: [
       {
