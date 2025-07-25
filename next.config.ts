@@ -1,11 +1,13 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.VERCEL_ENV === "production";
+
 const nextConfig: NextConfig = {
-  /* config options here */
   webpack(config) {
     config.resolve.extensions.push(".json");
     return config;
   },
+
   images: {
     remotePatterns: [
       {
@@ -21,6 +23,15 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+
+  async rewrites() {
+    return [
+      {
+        source: "/robots.txt",
+        destination: isProd ? "/robots-prod.txt" : "/robots-noindex.txt",
+      },
+    ];
   },
 };
 
