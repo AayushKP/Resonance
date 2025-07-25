@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Host: resonance-hitk.com
 Sitemap: https://resonance-hitk.com/sitemap.xml
+Host: resonance-hitk.com

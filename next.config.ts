@@ -1,13 +1,10 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.VERCEL_ENV === "production";
-
 const nextConfig: NextConfig = {
   webpack(config) {
     config.resolve.extensions.push(".json");
     return config;
   },
-
   images: {
     remotePatterns: [
       {
@@ -24,12 +21,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-
   async rewrites() {
+    const isProdDomain =
+      process.env.VERCEL_URL === "resonance-hitk.com" ||
+      process.env.VERCEL_URL === "www.resonance-hitk.com";
+
     return [
       {
         source: "/robots.txt",
-        destination: isProd ? "/robots-prod.txt" : "/robots-noindex.txt",
+        destination: isProdDomain ? "/robots-prod.txt" : "/robots-noindex.txt",
       },
     ];
   },
