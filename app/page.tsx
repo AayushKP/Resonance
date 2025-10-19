@@ -9,6 +9,7 @@ import teacherCoordinator from "@/lib/data/teacherCoordinator.json";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
 import alumni from "@/lib/data/alumni.json";
+import CadenceCountdown from "@/components/CadenceCountdown";
 
 export default function Home() {
   return (
@@ -108,6 +109,7 @@ export default function Home() {
                   </p>
                 </motion.div>
               </BlurFade>
+              <CadenceCountdown />
             </section>
           </motion.div>
 
