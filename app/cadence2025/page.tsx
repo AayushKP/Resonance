@@ -19,10 +19,23 @@ interface POC {
   email?: string;
 }
 
+interface ApiResponse {
+  resources?: CloudinaryImage[];
+  images?: (string | CloudinaryImage)[];
+}
+
+interface ResourceItem {
+  secure_url?: string;
+  url?: string;
+  width?: number;
+  height?: number;
+  public_id?: string;
+  asset_id?: string;
+}
+
 export default function Cadence() {
   const [images, setImages] = useState<CloudinaryImage[]>([]);
   const [displayedImages, setDisplayedImages] = useState<CloudinaryImage[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [pageLoading, setPageLoading] = useState<boolean>(true);
   const [loadingProgress, setLoadingProgress] = useState<number>(0);
@@ -34,8 +47,8 @@ export default function Cadence() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const leftSectionRef = useRef<HTMLDivElement>(null);
 
-  const MAX_IMAGES = 15;
-  const IMAGES_PER_LOAD = 3;
+  const MAX_IMAGES = 20;
+  const IMAGES_PER_LOAD = 5;
 
   // POC Data
   const pocs: POC[] = [
@@ -110,14 +123,14 @@ export default function Cadence() {
           throw new Error(errorData.error || `HTTP error! status: ${res.status}`);
         }
 
-        const data = await res.json();
+        const data = await res.json() as ApiResponse | CloudinaryImage[] | { images: (string | CloudinaryImage)[] };
         console.log("API Response received:", data);
 
         let resources: CloudinaryImage[] = [];
 
         // Handle different response formats
         if (Array.isArray(data)) {
-          resources = data.map((d: any) =>
+          resources = data.map((d: string | CloudinaryImage) =>
             typeof d === "string" 
               ? { secure_url: d } 
               : { 
@@ -128,16 +141,16 @@ export default function Cadence() {
                   asset_id: d.asset_id 
                 }
           );
-        } else if (data && Array.isArray(data.resources)) {
-          resources = data.resources.map((r: any) => ({
-            secure_url: r.secure_url || r.url,
+        } else if (data && 'resources' in data && Array.isArray(data.resources)) {
+          resources = data.resources.map((r: ResourceItem) => ({
+            secure_url: r.secure_url || r.url || '',
             width: r.width,
             height: r.height,
             public_id: r.public_id,
             asset_id: r.asset_id,
           }));
-        } else if (data && Array.isArray(data.images)) {
-          resources = data.images.map((u: any) => 
+        } else if (data && 'images' in data && Array.isArray(data.images)) {
+          resources = data.images.map((u: string | CloudinaryImage) => 
             typeof u === "string" 
               ? { secure_url: u } 
               : { 
@@ -171,8 +184,6 @@ export default function Cadence() {
         console.error("Error fetching images:", err);
         setError(err instanceof Error ? err.message : "Failed to load images");
         setImagesReady(true);
-      } finally {
-        setLoading(false);
       }
     }
 
@@ -584,7 +595,7 @@ export default function Cadence() {
                   className="text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
                 >
                   <span style={silverGradientStyle}>Cadence</span> is the flagship event of <span style={silverGradientStyle}>Resonance - the music club of HITK </span>, 
-                 it's a day in which the the campus echoes and roars the voice of music. A celebration of sound, soul, and self-expression, <span style={silverGradientStyle}>Cadence</span>  brings together the most talented vocalists, instrumentalists, and bands from across the region to create an unforgettable symphony of melodies.
+                 it&apos;s a day in which the the campus echoes and roars the voice of music. A celebration of sound, soul, and self-expression, <span style={silverGradientStyle}>Cadence</span>  brings together the most talented vocalists, instrumentalists, and bands from across the region to create an unforgettable symphony of melodies.
                  More than just a competition, <span style={silverGradientStyle}>Cadence</span>  is an emotion — a space where passion meets performance, where every beat echoes the spirit of creativity, and where the stage becomes a canvas for musical storytelling.
                  <span style={silverGradientStyle}>Cadence</span>  promises an experience that resonates long after the final note fades.
                 </motion.p>
@@ -791,8 +802,8 @@ instrument in perfect sync!
                 >
                   Get ready for an adrenaline-pumping 
                   <span style={silverGradientStyle}> musical clash at Battle of Bands.</span> 
-                  it's not just a contest
-— it's a musical warzone where only the most
+                  it&apos;s not just a contest
+— it&apos;s a musical warzone where only the most
 dynamic and crowd-moving band will claim
 the crown. Turn up the volume and feel the
 vibe — the stage is yours to conquer!
@@ -847,7 +858,7 @@ vibe — the stage is yours to conquer!
                     original tunes.
                   </p>
                   <p>
-                    <span style={silverGradientStyle}>It's a musical experience that brings the spirit of Cadence to life.</span> Feel the rhythm, sing
+                    <span style={silverGradientStyle}>It&apos;s a musical experience that brings the spirit of Cadence to life.</span> Feel the rhythm, sing
                     along, and let Resonance strike the
                     perfect chord with you!
                   </p>
@@ -994,7 +1005,7 @@ vibe — the stage is yours to conquer!
                               }}
                               transition={{ duration: 2, repeat: Infinity }}
                             >
-                              ✨ You've reached the end! ✨
+                              ✨ You&apos;ve reached the end! ✨
                             </motion.p>
                             <p className="text-gray-500 text-sm mt-2">
                               {displayedImages.length} of {MAX_IMAGES} images loaded
