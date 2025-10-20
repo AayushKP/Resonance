@@ -69,15 +69,6 @@ export default function Cadence() {
     }
   ];
 
-  // Parallax scroll effect
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const logoScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
-  const logoOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.6]);
-
   // Generate unique key for each image
   const getUniqueKey = (img: CloudinaryImage, index: number) => {
     return `${img.asset_id || ''}-${img.public_id || ''}-${img.secure_url}-${index}`;
@@ -221,6 +212,13 @@ export default function Cadence() {
     scrollContainer.addEventListener('scroll', handleScroll);
     return () => scrollContainer.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
 
   // Page loader
   if (pageLoading) {
@@ -472,6 +470,7 @@ export default function Cadence() {
   return (
     <motion.div 
       ref={containerRef}
+      style={{ opacity }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2 }}
@@ -520,42 +519,35 @@ export default function Cadence() {
             >
               {/* Logo Section */}
               <motion.div 
-                style={{ scale: logoScale, opacity: logoOpacity }}
-                initial={{ scale: 0.5, opacity: 0, rotate: -10 }}
-                animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                transition={{ 
-                  duration: 1.5, 
-                  delay: 0.9,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                whileHover={{ 
-                  scale: 1.05,
-                  rotate: 2,
-                  transition: { duration: 0.3 }
-                }}
-                className="rounded-2xl p-6 md:p-10 flex items-center justify-center"
-              >
-                <motion.div
-                  animate={{
-                    y: [0, -15, 0]
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <Image
-                    className="w-[350px] md:w-[450px] lg:w-[700px]"
-                    src="/images/cadencelogo.png"
-                    alt="cadence logo"
-                    width={700}
-                    height={700}
-                    priority
-                  />
-                </motion.div>
-              </motion.div>
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1, delay: 0.5 }}
+  whileHover={{ 
+    scale: 1.05,
+    transition: { duration: 0.3 }
+  }}
+  className="rounded-2xl p-6 md:p-10 flex items-center justify-center"
+>
+  <motion.div
+    animate={{
+      y: [0, -15, 0]
+    }}
+    transition={{
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  >
+    <Image
+      className="w-[350px] md:w-[450px] lg:w-[700px]"
+      src="/images/cadencelogo.png"
+      alt="cadence logo"
+      width={700}
+      height={700}
+      priority
+    />
+  </motion.div>
+</motion.div>
 
               {/* About Section */}
               <motion.div 

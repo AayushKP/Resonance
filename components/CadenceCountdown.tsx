@@ -177,7 +177,10 @@ export default function CadenceCountdown() {
 
           <h3 
             className="text-lg md:text-xl font-cinzel-decorative font-bold whitespace-nowrap relative z-10"
-            style={silverGradientStyle}
+            style={{
+              color: '#1a1a1a',
+              textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.3)'
+            }}
           >
             Cadence 2.0
           </h3>
@@ -209,14 +212,6 @@ export default function CadenceCountdown() {
 }
 
 function TimeUnit({ value, label }: { value: number; label: string }) {
-  const silverGradientStyle = {
-    background: 'linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 50%, #A8A8A8 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    filter: 'drop-shadow(0 0 8px rgba(192, 192, 192, 0.4))'
-  };
-
   return (
     <div className="flex flex-col items-center">
       <motion.span
@@ -225,13 +220,19 @@ function TimeUnit({ value, label }: { value: number; label: string }) {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}
         className="text-xl md:text-2xl font-bold font-cinzel-decorative leading-none"
-        style={silverGradientStyle}
+        style={{
+          color: '#1a1a1a',
+          textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.3)'
+        }}
       >
         {value.toString().padStart(2, "0")}
       </motion.span>
       <span 
-        className="text-[8px] md:text-[10px] font-bold font-cinzel-decorative opacity-70 mt-0.5"
-        style={silverGradientStyle}
+        className="text-[8px] md:text-[10px] font-bold font-cinzel-decorative mt-0.5"
+        style={{
+          color: '#2a2a2a',
+          textShadow: '0 0 8px rgba(255, 255, 255, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3)'
+        }}
       >
         {label}
       </span>
@@ -240,20 +241,15 @@ function TimeUnit({ value, label }: { value: number; label: string }) {
 }
 
 function Separator() {
-  const silverGradientStyle = {
-    background: 'linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 50%, #A8A8A8 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    filter: 'drop-shadow(0 0 8px rgba(192, 192, 192, 0.4))'
-  };
-
   return (
     <motion.span
       animate={{ opacity: [1, 0.5, 1] }}
       transition={{ duration: 1, repeat: Infinity }}
       className="text-lg md:text-xl font-bold font-cinzel-decorative"
-      style={silverGradientStyle}
+      style={{
+        color: '#1a1a1a',
+        textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.3)'
+      }}
     >
       :
     </motion.span>
