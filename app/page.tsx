@@ -9,8 +9,21 @@ import teacherCoordinator from "@/lib/data/teacherCoordinator.json";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
 import alumni from "@/lib/data/alumni.json";
+import CadenceCountdown from "@/components/CadenceCountdown";
+import Loader from "@/components/Loader";
+import { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+  
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3500); 
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Head>
@@ -78,6 +91,16 @@ export default function Home() {
           }}
         />
       </Head>
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <Loader key="loader" />
+        ) : (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
       <div className="relative min-h-screen overflow-hidden font-sans">
         <main className="z-30 relative flex flex-col items-center justify-center text-center text-white">
           <motion.div
@@ -108,6 +131,7 @@ export default function Home() {
                   </p>
                 </motion.div>
               </BlurFade>
+              <CadenceCountdown />
             </section>
           </motion.div>
 
@@ -532,6 +556,9 @@ export default function Home() {
           </div>
         </footer>
       </div>
+    </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
