@@ -84,7 +84,7 @@ export default function CadenceCountdown() {
           className="text-xs md:text-sm font-cinzel-decorative font-bold text-white/80"
           style={silverGradientStyle}
         >
-          Click for Cadence 2.0
+          Click for Cadence 2.O
         </motion.p>
         <motion.svg
           animate={{ 
@@ -162,7 +162,7 @@ export default function CadenceCountdown() {
           <motion.div
             className="absolute inset-0 rounded-full"
             animate={{
-              opacity: [0.3, 0.6, 0.3]
+              opacity: [0.5, 0.6, 0.3]
             }}
             transition={{
               duration: 2,
@@ -176,13 +176,12 @@ export default function CadenceCountdown() {
           />
 
           <h3 
-            className="text-lg md:text-xl font-cinzel-decorative font-bold whitespace-nowrap relative z-10"
+            className="text-lg md:text-xl font-cinzel-decorative text-white font-bold whitespace-nowrap relative z-10"
             style={{
-              color: '#1a1a1a',
-              textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.3)'
+              color: '#FFFFFF',
             }}
           >
-            Cadence 2.0
+            <span className="text-metal">Cadence </span>2.0
           </h3>
           
           <div className="flex gap-1 md:gap-2 items-center relative z-10">
@@ -219,20 +218,13 @@ function TimeUnit({ value, label }: { value: number; label: string }) {
         initial={{ scale: 1.2, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="text-xl md:text-2xl font-bold font-cinzel-decorative leading-none"
-        style={{
-          color: '#1a1a1a',
-          textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.3)'
-        }}
+        className="text-xl md:text-2xl text-white/80 font-bold font-cinzel-decorative leading-none"
+        
       >
         {value.toString().padStart(2, "0")}
       </motion.span>
       <span 
-        className="text-[8px] md:text-[10px] font-bold font-cinzel-decorative mt-0.5"
-        style={{
-          color: '#2a2a2a',
-          textShadow: '0 0 8px rgba(255, 255, 255, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3)'
-        }}
+        className="text-[8px] md:text-[10px] font-bold text-yellow-500 font-cinzel-decorative mt-0.5"
       >
         {label}
       </span>
@@ -245,9 +237,8 @@ function Separator() {
     <motion.span
       animate={{ opacity: [1, 0.5, 1] }}
       transition={{ duration: 1, repeat: Infinity }}
-      className="text-lg md:text-xl font-bold font-cinzel-decorative"
+      className="text-lg md:text-xl text-yellow-400 font-bold font-cinzel-decorative"
       style={{
-        color: '#1a1a1a',
         textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.3)'
       }}
     >
