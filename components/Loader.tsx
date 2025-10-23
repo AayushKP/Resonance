@@ -27,9 +27,6 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
     return () => clearInterval(timer);
   }, []);
 
-  // Musical notes configuration
-  const musicNotes = ["♪", "♫", "♬", "♩", "♭", "♮", "♯"];
-
   // Fixed positions to avoid hydration errors
   const floatingNotes = [
     { id: 0, note: "♪", delay: 0, duration: 4, x: 10, size: 30 },
