@@ -423,7 +423,7 @@ export default function Cadence() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-cinzel-decorative mb-6 text-center"
+                className="text-3xl md:text-6xl font-cinzel-decorative mb-6 text-center"
               >
                 <motion.span
                   animate={{
@@ -442,7 +442,7 @@ export default function Cadence() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.7, duration: 1 }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-justify text-white leading-relaxed"
+                className="text-md md:text-xl 2xl:text-2xl font-montserrat text-justify text-white leading-relaxed"
               >
                 <span style={silverGradientStyle}>Cadence</span> is the flagship
                 event of{" "}
@@ -495,7 +495,7 @@ export default function Cadence() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.9, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
+                className="text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
               >
                 <motion.span
                   transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
@@ -507,7 +507,7 @@ export default function Cadence() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.1, duration: 1 }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
+                className="text-md md:text-xl 2xl:text-2xl font-montserrat text-center text-white leading-relaxed"
               >
                 The{" "}
                 <span style={silverGradientStyle}>
@@ -542,7 +542,7 @@ export default function Cadence() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.1, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
+                className="text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
               >
                 <motion.span
                   transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
@@ -554,7 +554,7 @@ export default function Cadence() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.3, duration: 1 }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
+                className="text-md md:text-xl 2xl:text-2xl font-montserrat text-center text-white leading-relaxed"
               >
                 VoxTech is a{" "}
                 <span style={silverGradientStyle}>
@@ -585,7 +585,7 @@ export default function Cadence() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.3, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
+                className="text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
               >
                 <motion.span
                   transition={{ duration: 2, repeat: Infinity, delay: 0.8 }}
@@ -597,7 +597,7 @@ export default function Cadence() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.5, duration: 1 }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
+                className="text-md md:text-xl 2xl:text-2xl font-montserrat text-center text-white leading-relaxed"
               >
                 Solo Sync is the ultimate{" "}
                 <span style={silverGradientStyle}>
@@ -625,7 +625,7 @@ export default function Cadence() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.5, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
+                className="text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
               >
                 <motion.span
                   transition={{ duration: 2, repeat: Infinity, delay: 1.0 }}
@@ -637,7 +637,7 @@ export default function Cadence() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.7, duration: 1 }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
+                className="text-md md:text-xl 2xl:text-2xl font-montserrat text-center text-white leading-relaxed"
               >
                 Get ready for an adrenaline-pumping
                 <span style={silverGradientStyle}>
@@ -667,7 +667,7 @@ export default function Cadence() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.7, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
+                className="text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
               >
                 <motion.span
                   transition={{ duration: 2, repeat: Infinity, delay: 1.2 }}
@@ -679,7 +679,7 @@ export default function Cadence() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.9, duration: 1 }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
+                className="text-md md:text-xl 2xl:text-2xl font-montserrat text-center text-white leading-relaxed"
               >
                 <p className="mb-4">
                   Get ready to groove as{" "}
@@ -715,7 +715,7 @@ export default function Cadence() {
                 className="flex flex-col items-center md:items-start"
               >
                 <h4
-                  className="text-xl sm:text-2xl font-cinzel-decorative mb-6"
+                  className="text-2xl sm:text-4xl font-cinzel-decorative mb-6"
                   style={silverGradientStyle}
                 >
                   Connect With Us
@@ -750,7 +750,7 @@ export default function Cadence() {
                         />
                       </svg>
                     </div>
-                    <span className="font-cinzel-decorative text-xs sm:text-sm text-white tracking-wide truncate">
+                    <span className="font-cinzel-decorative text-sm md:text-md text-white tracking-wide truncate">
                       Registration Form
                     </span>
                   </motion.a>
@@ -782,7 +782,7 @@ export default function Cadence() {
                         />
                       </svg>
                     </div>
-                    <span className="font-cinzel-decorative text-xs sm:text-sm text-white tracking-wide truncate">
+                    <span className="font-cinzel-decorative text-sm md:text-md text-white tracking-wide truncate">
                       Cadence Brochure
                     </span>
                   </motion.a>
@@ -826,13 +826,13 @@ export default function Cadence() {
                       </svg>
                     </div>
                     <span className="font-cinzel-decorative text-xs sm:text-sm text-white tracking-wide truncate">
-                      @cadence_resonancehitk
+                      Instagram Handle
                     </span>
                   </motion.a>
                 </div>
 
                 {/* Event Info */}
-                <div className="flex flex-col font-bold gap-2 mt-6 text-xs sm:text-sm text-white">
+                <div className="flex flex-col  justify-center items-center md:justify-start md:items-start font-bold gap-2 mt-6 text-xs sm:text-sm text-white">
                   <p className="flex items-center gap-2">
                     <span className="text-pink-400 text-base sm:text-lg">
                       ⏰
