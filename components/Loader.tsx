@@ -155,7 +155,7 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="w-32 h-32 xs:w-40 xs:h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 object-contain relative z-10"
+          className="w-44 h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-80 xl:h-80 object-contain relative z-10"
         />
       </motion.div>
 
