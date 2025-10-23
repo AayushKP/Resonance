@@ -12,7 +12,7 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
 
   useEffect(() => {
     setIsMounted(true);
-    
+
     const duration = 2500;
     const interval = 50;
     const increment = (interval / duration) * 100;
@@ -29,7 +29,7 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
 
   // Musical notes configuration
   const musicNotes = ["♪", "♫", "♬", "♩", "♭", "♮", "♯"];
-  
+
   // Fixed positions to avoid hydration errors
   const floatingNotes = [
     { id: 0, note: "♪", delay: 0, duration: 4, x: 10, size: 30 },
@@ -141,46 +141,10 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
           className="absolute inset-0 bg-yellow-500/20 rounded-full blur-xl sm:blur-2xl lg:blur-3xl"
         />
 
-        {/* Orbiting Musical Notes around Logo */}
-        {[0, 60, 120, 180, 240, 300].map((angle, index) => (
-          <motion.div
-            key={`orbit-${index}`}
-            animate={{
-              rotate: 360,
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "linear",
-              delay: index * 0.2,
-            }}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <motion.span
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.5, 1, 0.5],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: index * 0.3,
-              }}
-              className="absolute text-yellow-400 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-bold"
-              style={{
-                transform: `rotate(${angle}deg) translateY(calc(-60px - 10vw)) rotate(-${angle}deg)`,
-              }}
-            >
-              {musicNotes[index % musicNotes.length]}
-            </motion.span>
-          </motion.div>
-        ))}
-
         {/* Logo */}
         <motion.img
-          src="/images/cadencelogo.png"
-          alt="Cadence Logo"
+          src="/images/resonance.png"
+          alt="Resonance Logo"
           animate={{
             scale: [1, 1.05, 1],
             filter: [
