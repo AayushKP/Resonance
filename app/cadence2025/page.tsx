@@ -1,7 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 
 interface POC {
@@ -32,7 +37,7 @@ export default function Cadence() {
       name: "Saikat Sana",
       role: "Student Coordinator",
       phone: "+91 82508 81177",
-    }
+    },
   ];
 
   // Page loading progress
@@ -60,10 +65,10 @@ export default function Cadence() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start start", "end end"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
   // Page loader
   if (pageLoading) {
@@ -84,27 +89,27 @@ export default function Cadence() {
               const yEnd = (yPos + 40) % 100;
               const duration = 3 + (i % 3);
               const delay = (i % 5) * 0.4;
-              
+
               return (
                 <motion.div
                   key={i}
                   className="absolute w-2 h-2 rounded-full"
-                  style={{ 
+                  style={{
                     left: `${xPos}%`,
                     top: `${yPos}%`,
-                    backgroundColor: 'rgba(192, 192, 192, 0.2)'
+                    backgroundColor: "rgba(192, 192, 192, 0.2)",
                   }}
                   initial={{ scale: 0 }}
                   animate={{
                     y: [`0%`, `${yEnd}%`],
                     x: [`0%`, `${xEnd}%`],
                     scale: [0, 1, 0],
-                    opacity: [0, 0.5, 0]
+                    opacity: [0, 0.5, 0],
                   }}
                   transition={{
                     duration: duration,
                     repeat: Infinity,
-                    delay: delay
+                    delay: delay,
                   }}
                 />
               );
@@ -114,13 +119,13 @@ export default function Cadence() {
           <div className="relative z-10 flex flex-col items-center gap-8">
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
-              animate={{ 
+              animate={{
                 scale: [0, 1.2, 1],
                 rotate: 0,
               }}
-              transition={{ 
+              transition={{
                 duration: 1.5,
-                ease: "easeOut"
+                ease: "easeOut",
               }}
               className="relative"
             >
@@ -128,44 +133,44 @@ export default function Cadence() {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                 className="absolute -inset-8 border-4 border-t-transparent border-r-transparent border-b-transparent rounded-full"
-                style={{ borderTopColor: '#C0C0C0' }}
+                style={{ borderTopColor: "#C0C0C0" }}
               />
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                 className="absolute -inset-12 border-2 border-t-transparent border-r-transparent border-b-transparent rounded-full"
-                style={{ borderRightColor: 'rgba(192, 192, 192, 0.5)' }}
+                style={{ borderRightColor: "rgba(192, 192, 192, 0.5)" }}
               />
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
                 className="absolute -inset-16 border border-t-transparent border-r-transparent border-b-transparent rounded-full"
-                style={{ borderBottomColor: 'rgba(192, 192, 192, 0.3)' }}
+                style={{ borderBottomColor: "rgba(192, 192, 192, 0.3)" }}
               />
-              
+
               <motion.div
                 animate={{
                   scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.6, 0.3]
+                  opacity: [0.3, 0.6, 0.3],
                 }}
                 transition={{
                   duration: 2,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
                 className="absolute inset-0 rounded-full blur-xl"
-                style={{ backgroundColor: 'rgba(192, 192, 192, 0.2)' }}
+                style={{ backgroundColor: "rgba(192, 192, 192, 0.2)" }}
               />
 
               <motion.div
-                animate={{ 
+                animate={{
                   y: [0, -10, 0],
-                  rotate: [0, 5, -5, 0]
+                  rotate: [0, 5, -5, 0],
                 }}
-                transition={{ 
+                transition={{
                   duration: 2,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
               >
                 <Image
@@ -184,19 +189,21 @@ export default function Cadence() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="flex flex-col items-center gap-4"
             >
-              <div className="w-64 h-12 bg-gray-800 rounded-full overflow-hidden border relative"
-                style={{ borderColor: 'rgba(192, 192, 192, 0.3)' }}
+              <div
+                className="w-64 h-12 bg-gray-800 rounded-full overflow-hidden border relative"
+                style={{ borderColor: "rgba(192, 192, 192, 0.3)" }}
               >
                 <div className="absolute inset-0 flex flex-col justify-around py-2">
                   {[...Array(5)].map((_, i) => (
                     <div key={i} className="w-full h-px bg-gray-700/50" />
                   ))}
                 </div>
-                
+
                 <motion.div
                   className="h-full relative z-10"
-                  style={{ 
-                    background: 'linear-gradient(to right, rgba(192, 192, 192, 0.3), rgba(192, 192, 192, 0.6))'
+                  style={{
+                    background:
+                      "linear-gradient(to right, rgba(192, 192, 192, 0.3), rgba(192, 192, 192, 0.6))",
                   }}
                   initial={{ width: 0 }}
                   animate={{ width: `${loadingProgress}%` }}
@@ -206,14 +213,14 @@ export default function Cadence() {
                     {loadingProgress > 10 && (
                       <motion.span
                         className="text-2xl"
-                        style={{ color: '#C0C0C0' }}
+                        style={{ color: "#C0C0C0" }}
                         animate={{
                           y: [0, -5, 0],
-                          rotate: [-5, 5, -5]
+                          rotate: [-5, 5, -5],
                         }}
                         transition={{
                           duration: 0.5,
-                          repeat: Infinity
+                          repeat: Infinity,
                         }}
                       >
                         ♪
@@ -222,15 +229,15 @@ export default function Cadence() {
                     {loadingProgress > 30 && (
                       <motion.span
                         className="text-xl ml-1"
-                        style={{ color: '#C0C0C0' }}
+                        style={{ color: "#C0C0C0" }}
                         animate={{
                           y: [0, -3, 0],
-                          rotate: [5, -5, 5]
+                          rotate: [5, -5, 5],
                         }}
                         transition={{
                           duration: 0.6,
                           repeat: Infinity,
-                          delay: 0.1
+                          delay: 0.1,
                         }}
                       >
                         ♫
@@ -239,15 +246,15 @@ export default function Cadence() {
                     {loadingProgress > 60 && (
                       <motion.span
                         className="text-lg ml-1"
-                        style={{ color: '#C0C0C0' }}
+                        style={{ color: "#C0C0C0" }}
                         animate={{
                           y: [0, -4, 0],
-                          rotate: [-5, 5, -5]
+                          rotate: [-5, 5, -5],
                         }}
                         transition={{
                           duration: 0.7,
                           repeat: Infinity,
-                          delay: 0.2
+                          delay: 0.2,
                         }}
                       >
                         ♬
@@ -256,7 +263,7 @@ export default function Cadence() {
                   </div>
                 </motion.div>
               </div>
-              
+
               <motion.p
                 className="text-sm text-gray-400 font-montserrat"
                 key={loadingProgress}
@@ -273,24 +280,24 @@ export default function Cadence() {
                 <motion.div
                   key={i}
                   className="absolute text-4xl"
-                  style={{ color: 'rgba(192, 192, 192, 0.3)' }}
-                  initial={{ 
+                  style={{ color: "rgba(192, 192, 192, 0.3)" }}
+                  initial={{
                     x: `${25 + i * 20}%`,
                     y: "100%",
                     opacity: 0,
-                    rotate: 0
+                    rotate: 0,
                   }}
                   animate={{
                     y: ["-100%", "-100%"],
                     opacity: [0, 1, 1, 0],
                     rotate: [0, 360],
-                    x: [`${25 + i * 20}%`, `${30 + i * 20}%`]
+                    x: [`${25 + i * 20}%`, `${30 + i * 20}%`],
                   }}
                   transition={{
                     duration: 4,
                     repeat: Infinity,
                     delay: i * 0.5,
-                    ease: "easeInOut"
+                    ease: "easeInOut",
                   }}
                 >
                   {note}
@@ -304,16 +311,17 @@ export default function Cadence() {
   }
 
   const silverGradientStyle = {
-    background: 'linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 50%, #A8A8A8 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    textShadow: '0 2px 10px rgba(192, 192, 192, 0.3)',
-    filter: 'drop-shadow(0 0 8px rgba(192, 192, 192, 0.4))'
+    background:
+      "linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 50%, #A8A8A8 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+    textShadow: "0 2px 10px rgba(192, 192, 192, 0.3)",
+    filter: "drop-shadow(0 0 8px rgba(192, 192, 192, 0.4))",
   };
 
   return (
-    <motion.div 
+    <motion.div
       ref={containerRef}
       style={{ opacity }}
       initial={{ opacity: 0 }}
@@ -327,58 +335,64 @@ export default function Cadence() {
           <motion.div
             key={`bg-${i}`}
             className="absolute w-1 h-1 rounded-full"
-            style={{ backgroundColor: 'rgba(192, 192, 192, 0.1)' }}
-            initial={{ 
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-              y: -20
+            style={{ backgroundColor: "rgba(192, 192, 192, 0.1)" }}
+            initial={{
+              x:
+                Math.random() *
+                (typeof window !== "undefined" ? window.innerWidth : 1000),
+              y: -20,
             }}
             animate={{
-              y: typeof window !== 'undefined' ? window.innerHeight + 20 : 1000,
-              x: [null, Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000)]
+              y: typeof window !== "undefined" ? window.innerHeight + 20 : 1000,
+              x: [
+                null,
+                Math.random() *
+                  (typeof window !== "undefined" ? window.innerWidth : 1000),
+              ],
             }}
             transition={{
               duration: 10 + Math.random() * 10,
               repeat: Infinity,
               delay: Math.random() * 5,
-              ease: "linear"
+              ease: "linear",
             }}
           />
         ))}
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
           className="rounded-3xl"
         >
           {/* Main Content Section */}
-          <motion.div 
+          <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
             className="flex flex-col gap-8 lg:gap-12"
           >
             {/* Logo Section */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="rounded-2xl p-4 sm:p-6 md:p-10 flex items-center justify-center"
             >
               <motion.div
                 animate={{
-                  y: [0, -15, 0]
+                  y: [0, -15, 0],
                 }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
                 className="w-full max-w-2xl"
               >
@@ -394,18 +408,18 @@ export default function Cadence() {
             </motion.div>
 
             {/* About Section */}
-            <motion.div 
+            <motion.div
               initial={{ y: 80, opacity: 0, rotateX: 45 }}
               animate={{ y: 0, opacity: 1, rotateX: 0 }}
               transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
-              whileHover={{ 
+              whileHover={{
                 y: -5,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
-              className="rounded-2xl p-6 md:p-10 w-full bg-gradient-to-br from-transparent to-gray-900/20"
+              className="rounded-2xl p-6 md:p-10 w-full bg-backdrop-blur-lg"
             >
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5, duration: 0.8 }}
@@ -416,286 +430,269 @@ export default function Cadence() {
                     textShadow: [
                       "0 0 10px rgba(255,255,255,0.3)",
                       "0 0 20px rgba(255,255,255,0.5)",
-                      "0 0 10px rgba(255,255,255,0.3)"
-                    ]
+                      "0 0 10px rgba(255,255,255,0.3)",
+                    ],
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  About <span style={silverGradientStyle}>Cadence</span>
+                  About <span className="text-metal">Cadence</span>
                 </motion.span>
               </motion.h3>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.7, duration: 1 }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
+                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-justify text-white leading-relaxed"
               >
-                <span style={silverGradientStyle}>Cadence</span> is the flagship event of <span style={silverGradientStyle}>Resonance - the music club of HITK </span>, 
-               it&apos;s a day in which the the campus echoes and roars the voice of music. A celebration of sound, soul, and self-expression, <span style={silverGradientStyle}>Cadence</span>  brings together the most talented vocalists, instrumentalists, and bands from across the region to create an unforgettable symphony of melodies.
-               More than just a competition, <span style={silverGradientStyle}>Cadence</span>  is an emotion — a space where passion meets performance, where every beat echoes the spirit of creativity, and where the stage becomes a canvas for musical storytelling.
-               <span style={silverGradientStyle}>Cadence</span>  promises an experience that resonates long after the final note fades.
+                <span style={silverGradientStyle}>Cadence</span> is the flagship
+                event of{" "}
+                <span style={silverGradientStyle}>
+                  Resonance : the music club of HITK{" "}
+                </span>
+                , it&apos;s a day in which the the campus echoes and roars the
+                voice of music. A celebration of sound, soul, and
+                self-expression,{" "}
+                <span style={silverGradientStyle}>Cadence</span> brings together
+                the most talented vocalists, instrumentalists, and bands from
+                across the region to create an unforgettable symphony of
+                melodies. More than just a competition,{" "}
+                <span style={silverGradientStyle}>Cadence</span> is an emotion -
+                a space where passion meets performance, where every beat echoes
+                the spirit of creativity, and where the stage becomes a canvas
+                for musical storytelling.
+                <span style={silverGradientStyle}> Cadence</span> promises an
+                experience that resonates long after the final note fades.
               </motion.p>
             </motion.div>
 
             {/* Events Header */}
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.7, duration: 0.8 }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-cinzel-decorative mb-6 text-center"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl underline font-cinzel-decorative text-center"
             >
               <motion.span
-                animate={{
-                  textShadow: [
-                    "0 0 10px rgba(255,255,255,0.3)",
-                    "0 0 20px rgba(255,255,255,0.5)",
-                    "0 0 10px rgba(255,255,255,0.3)"
-                  ]
-                }}
                 transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
               >
-                <span style={{ 
-                  ...silverGradientStyle,
-                  textDecoration: 'underline',
-                  textDecorationThickness: '2px',
-                  textUnderlineOffset: '8px',
-                  textDecorationColor: '#C0C0C0'
-                }}>Events</span> 
+                <span style={silverGradientStyle}>Events</span>
               </motion.span>
             </motion.h3>
 
             {/* Surkala */}
-            <motion.div 
+            <motion.div
               initial={{ y: 80, opacity: 0, rotateX: 45 }}
               animate={{ y: 0, opacity: 1, rotateX: 0 }}
               transition={{ duration: 1.2, delay: 1.6, ease: "easeOut" }}
-              whileHover={{ 
+              whileHover={{
                 y: -5,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="rounded-2xl p-6 md:p-10 w-full bg-gradient-to-br from-transparent to-gray-900/20"
             >
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.9, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-cinzel-decorative mb-6 text-center"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
               >
                 <motion.span
-                  animate={{
-                    textShadow: [
-                      "0 0 10px rgba(255,255,255,0.3)",
-                      "0 0 20px rgba(255,255,255,0.5)",
-                      "0 0 10px rgba(255,255,255,0.3)"
-                    ]
-                  }}
                   transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
                 >
-                  <span style={silverGradientStyle}>Surkala</span> 
+                  <span className="text-metal">Surkala</span>
                 </motion.span>
               </motion.h3>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.1, duration: 1 }}
                 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
               >
-                The <span style={silverGradientStyle}>EASTERN SOLO SINGING COMPETITION</span> is a
-                celebration of <span style={silverGradientStyle}>classical and contemporary vocal</span> 
-                traditions from across the East, Showcasing
-                exceptional solo talents in genres such as
-                <span style={silverGradientStyle}> Hindustani, Carnatic and other indigenous styles</span> 
+                The{" "}
+                <span style={silverGradientStyle}>
+                  EASTERN SOLO SINGING COMPETITION
+                </span>{" "}
+                is a celebration of{" "}
+                <span style={silverGradientStyle}>
+                  classical and contemporary vocal
+                </span>
+                traditions from across the East, Showcasing exceptional solo
+                talents in genres such as
+                <span style={silverGradientStyle}>
+                  {" "}
+                  Hindustani, Carnatic and other indigenous styles
+                </span>
               </motion.p>
             </motion.div>
 
             {/* VoxTech */}
-            <motion.div 
+            <motion.div
               initial={{ y: 80, opacity: 0, rotateX: 45 }}
               animate={{ y: 0, opacity: 1, rotateX: 0 }}
               transition={{ duration: 1.2, delay: 1.8, ease: "easeOut" }}
-              whileHover={{ 
+              whileHover={{
                 y: -5,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="rounded-2xl p-6 md:p-10 w-full bg-gradient-to-br from-transparent to-gray-900/20"
             >
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.1, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-cinzel-decorative mb-6 text-center"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
               >
                 <motion.span
-                  animate={{
-                    textShadow: [
-                      "0 0 10px rgba(255,255,255,0.3)",
-                      "0 0 20px rgba(255,255,255,0.5)",
-                      "0 0 10px rgba(255,255,255,0.3)"
-                    ]
-                  }}
                   transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
                 >
-                  <span style={silverGradientStyle}>VOXTECH</span> 
+                  <span className="text-metal">VOXTECH</span>
                 </motion.span>
               </motion.h3>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay:2.3, duration: 1 }}
+                transition={{ delay: 2.3, duration: 1 }}
                 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
               >
-               VoxTech is a <span style={silverGradientStyle}>SOLO WESTERN SINGING EVENT</span>
-               that celebrates the art of vocal
-                performance, individual expression and
-                stage presence across diverse western
-                music genres such as <span style={silverGradientStyle}>pop, rock, jazz, blues and contemporary hits.</span>
+                VoxTech is a{" "}
+                <span style={silverGradientStyle}>
+                  SOLO WESTERN SINGING EVENT{" "}
+                </span>
+                that celebrates the art of vocal performance, individual
+                expression and stage presence across diverse western music
+                genres such as{" "}
+                <span style={silverGradientStyle}>
+                  pop, rock, jazz, blues and contemporary hits.
+                </span>
               </motion.p>
             </motion.div>
 
             {/* Solo Sync */}
-            <motion.div 
+            <motion.div
               initial={{ y: 80, opacity: 0, rotateX: 45 }}
               animate={{ y: 0, opacity: 1, rotateX: 0 }}
               transition={{ duration: 1.2, delay: 2.0, ease: "easeOut" }}
-              whileHover={{ 
+              whileHover={{
                 y: -5,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="rounded-2xl p-6 md:p-10 w-full bg-gradient-to-br from-transparent to-gray-900/20"
             >
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.3, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-cinzel-decorative mb-6 text-center"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
               >
                 <motion.span
-                  animate={{
-                    textShadow: [
-                      "0 0 10px rgba(255,255,255,0.3)",
-                      "0 0 20px rgba(255,255,255,0.5)",
-                      "0 0 10px rgba(255,255,255,0.3)"
-                    ]
-                  }}
                   transition={{ duration: 2, repeat: Infinity, delay: 0.8 }}
                 >
-                  <span style={silverGradientStyle}>Solo Sync</span>
+                  <span className="text-metal">Solo Sync</span>
                 </motion.span>
               </motion.h3>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.5, duration: 1 }}
                 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
               >
-                Solo Sync is the <span style={silverGradientStyle}>ultimate SOLO INSTRUMENTAL FACE OFF</span>, from soulful strings to electrifying
-riffs and mesmerizing keys — it is all about
-pure, unfiltered musical expression. No
-lyrics. No limits. Just you and your
-instrument in perfect sync!
+                Solo Sync is the ultimate{" "}
+                <span style={silverGradientStyle}>
+                  SOLO INSTRUMENTAL FACE OFF
+                </span>
+                , from soulful strings to electrifying riffs and mesmerizing
+                keys - it is all about pure, unfiltered musical expression. No
+                yrics. No limits. Just you and your instrument in perfect sync!
               </motion.p>
             </motion.div>
 
             {/* Battle of Bands */}
-            <motion.div 
+            <motion.div
               initial={{ y: 80, opacity: 0, rotateX: 45 }}
               animate={{ y: 0, opacity: 1, rotateX: 0 }}
               transition={{ duration: 1.2, delay: 2.2, ease: "easeOut" }}
-              whileHover={{ 
+              whileHover={{
                 y: -5,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="rounded-2xl p-6 md:p-10 w-full bg-gradient-to-br from-transparent to-gray-900/20"
             >
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.5, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-cinzel-decorative mb-6 text-center"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
               >
                 <motion.span
-                  animate={{
-                    textShadow: [
-                      "0 0 10px rgba(255,255,255,0.3)",
-                      "0 0 20px rgba(255,255,255,0.5)",
-                      "0 0 10px rgba(255,255,255,0.3)"
-                    ]
-                  }}
                   transition={{ duration: 2, repeat: Infinity, delay: 1.0 }}
                 >
-                  <span style={silverGradientStyle}>Battle of Bands</span>
+                  <span className="text-metal">Battle of Bands</span>
                 </motion.span>
               </motion.h3>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.7, duration: 1 }}
                 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
               >
-                Get ready for an adrenaline-pumping 
-                <span style={silverGradientStyle}> musical clash at Battle of Bands.</span> 
-                it&apos;s not just a contest
-— it&apos;s a musical warzone where only the most
-dynamic and crowd-moving band will claim
-the crown. Turn up the volume and feel the
-vibe — the stage is yours to conquer!
+                Get ready for an adrenaline-pumping
+                <span style={silverGradientStyle}>
+                  {" "}
+                  musical clash at Battle of Bands.{" "}
+                </span>
+                It&apos;s not just a contest, it&apos;s a musical warzone where
+                only the most dynamic and crowd-moving band will claim the
+                crown. Turn up the volume and feel the vibe - the stage is yours
+                to conquer!
               </motion.p>
             </motion.div>
 
             {/* Resonance Band Performance */}
-            <motion.div 
+            <motion.div
               initial={{ y: 80, opacity: 0, rotateX: 45 }}
               animate={{ y: 0, opacity: 1, rotateX: 0 }}
               transition={{ duration: 1.2, delay: 2.4, ease: "easeOut" }}
-              whileHover={{ 
+              whileHover={{
                 y: -5,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="rounded-2xl p-6 md:p-10 w-full bg-gradient-to-br from-transparent to-gray-900/20"
             >
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.7, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-cinzel-decorative mb-6 text-center"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sanskrit mb-6 text-center"
               >
                 <motion.span
-                  animate={{
-                    textShadow: [
-                      "0 0 10px rgba(255,255,255,0.3)",
-                      "0 0 20px rgba(255,255,255,0.5)",
-                      "0 0 10px rgba(255,255,255,0.3)"
-                    ]
-                  }}
                   transition={{ duration: 2, repeat: Infinity, delay: 1.2 }}
                 >
-                  <span style={silverGradientStyle}>Resonance Band Performance</span>
+                  <span className="text-metal">Resonance Band Performance</span>
                 </motion.span>
               </motion.h3>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.9, duration: 1 }}
                 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-montserrat text-center text-white leading-relaxed"
               >
                 <p className="mb-4">
-                  Get ready to groove as <span style={silverGradientStyle}>Resonance, the official band of Heritage Institute of Technology, takes the stage for a special live performance at Cadence 2025!</span>
-                </p>
-                <p className="mb-4">
-                  Known for their electrifying energy
-                  and soulful sound, Resonance promises
-                  to set the mood with a power-packed mix
-                  of classic hits, modern anthems, and
-                  original tunes.
-                </p>
-                <p>
-                  <span style={silverGradientStyle}>It&apos;s a musical experience that brings the spirit of Cadence to life.</span> Feel the rhythm, sing
-                  along, and let Resonance strike the
+                  Get ready to groove as{" "}
+                  <span style={silverGradientStyle}>
+                    Resonance, the official band of Heritage Institute of
+                    Technology, takes the stage for a special live performance
+                    at Cadence 2025!{" "}
+                  </span>
+                  <span style={silverGradientStyle}>
+                    It&apos;s a musical experience that brings the spirit of
+                    Cadence to life.
+                  </span>{" "}
+                  Feel the rhythm, sing along, and let Resonance strike the
                   perfect chord with you!
                 </p>
               </motion.div>
@@ -717,64 +714,148 @@ vibe — the stage is yours to conquer!
                 transition={{ delay: 3.2, duration: 0.8 }}
                 className="flex flex-col items-center md:items-start"
               >
-                <h4 className="text-xl sm:text-2xl font-cinzel-decorative mb-4" style={silverGradientStyle}>
+                <h4
+                  className="text-xl sm:text-2xl font-cinzel-decorative mb-6"
+                  style={silverGradientStyle}
+                >
                   Connect With Us
                 </h4>
-                <div className="flex gap-4">
-                  <motion.a
-                    href="https://www.instagram.com/cadence_resonancehitk/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-br from-pink-600 to-purple-600 p-3 sm:p-4 rounded-full hover:shadow-lg hover:shadow-pink-500/50 transition-all"
-                  >
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                  </motion.a>
-                  
-                  <motion.a
-                    href="https://drive.google.com/file/d/1HNkzyQjkZ-v3cSOliupFRpHpbivAjoq2/view"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, rotate: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-br from-blue-600 to-cyan-600 p-3 sm:p-4 rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all"
-                  >
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </motion.a>
 
+                {/* Equal-width glass buttons */}
+                <div className="flex flex-col gap-4 w-full max-w-[260px] sm:max-w-[280px]">
+                  {/* 1️⃣ Registration Form */}
                   <motion.a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSerrM_SqBGzTPRvhl6Tt9iQHfcvMqS-qLPFlAvS5GgqZRIU5g/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    whileHover={{ scale: 1.05, x: 5 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-br from-green-600 to-emerald-600 p-3 sm:p-4 rounded-full hover:shadow-lg hover:shadow-green-500/50 transition-all"
+                    className="flex items-center gap-3 p-3 rounded-xl 
+                 w-full backdrop-blur-lg bg-white/10 border border-white/20 
+                 hover:bg-white/20 transition-all duration-300"
                   >
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
+                    <div className="p-2.5 rounded-full flex items-center justify-center">
+                      <svg
+                        className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414
+               a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    </div>
+                    <span className="font-cinzel-decorative text-xs sm:text-sm text-white tracking-wide truncate">
+                      Registration Form
+                    </span>
+                  </motion.a>
+
+                  {/* 2️⃣ Cadence Brochure */}
+                  <motion.a
+                    href="https://drive.google.com/file/d/1HNkzyQjkZ-v3cSOliupFRpHpbivAjoq2/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05, x: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-3 p-3 rounded-xl 
+                 w-full backdrop-blur-lg bg-white/10 border border-white/20 
+                 hover:bg-white/20 transition-all duration-300"
+                  >
+                    <div className="p-2.5 rounded-full flex items-center justify-center">
+                      <svg
+                        className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586
+               a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        />
+                      </svg>
+                    </div>
+                    <span className="font-cinzel-decorative text-xs sm:text-sm text-white tracking-wide truncate">
+                      Cadence Brochure
+                    </span>
+                  </motion.a>
+
+                  {/* 3️⃣ Instagram Handle */}
+                  <motion.a
+                    href="https://www.instagram.com/cadence_resonancehitk/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05, x: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-3 p-3 rounded-xl 
+                 w-full backdrop-blur-lg bg-white/10 border border-white/20 
+                 hover:bg-white/20 transition-all duration-300"
+                  >
+                    <div className="p-2.5 rounded-full flex items-center justify-center">
+                      <svg
+                        className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2.163c3.204 0 3.584.012 4.85.07
+            3.252.148 4.771 1.691 4.919 4.919.058 1.265.069
+            1.645.069 4.849 0 3.205-.012 3.584-.069
+            4.849-.149 3.225-1.664 4.771-4.919 4.919
+            -1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012
+            -4.849-.07-3.26-.149-4.771-1.699-4.919-4.92
+            -.058-1.265-.07-1.644-.07-4.849 0-3.204.013
+            -3.583.07-4.849.149-3.227 1.664-4.771
+            4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0
+            5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759
+            6.163 6.162 6.163 6.162-2.759 6.162-6.163c0
+            -3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209
+            0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791
+            4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796
+            0-1.441.645-1.441 1.44s.645 1.44 1.441
+            1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44
+            -1.439-1.44z"
+                        />
+                      </svg>
+                    </div>
+                    <span className="font-cinzel-decorative text-xs sm:text-sm text-white tracking-wide truncate">
+                      @cadence_resonancehitk
+                    </span>
                   </motion.a>
                 </div>
 
+                {/* Event Info */}
                 <div className="flex flex-col font-bold gap-2 mt-6 text-xs sm:text-sm text-white">
                   <p className="flex items-center gap-2">
-                    <span className="text-pink-400 text-base sm:text-lg">⏰</span> 
-                    <span>9 A.M. Onwards</span>
+                    <span className="text-pink-400 text-base sm:text-lg">
+                      ⏰
+                    </span>
+                    <span className="font-cinzel-decorative">
+                      9 A.M. Onwards
+                    </span>
                   </p>
-                  
                   <p className="flex items-center gap-2">
-                    <span className="text-blue-400 text-base sm:text-lg">📅</span> 
-                    <span>2nd November, 2025</span>
+                    <span className="text-blue-400 text-base sm:text-lg">
+                      📅
+                    </span>
+                    <span className="font-cinzel-decorative">
+                      2nd November, 2025
+                    </span>
                   </p>
-                  
                   <p className="flex items-center gap-2">
-                    <span className="text-green-400 text-base sm:text-lg">📍</span> 
-                    <span>Heritage Institute of Technology, Kolkata</span>
+                    <span className="text-green-400 text-base sm:text-lg">
+                      📍
+                    </span>
+                    <span className="font-cinzel-decorative">
+                      Heritage Institute of Technology, Kolkata
+                    </span>
                   </p>
                 </div>
               </motion.div>
@@ -786,7 +867,10 @@ vibe — the stage is yours to conquer!
                 transition={{ delay: 3.4, duration: 0.8 }}
                 className="flex flex-col"
               >
-                <h4 className="text-xl sm:text-2xl font-cinzel-decorative mb-6 text-center md:text-left" style={silverGradientStyle}>
+                <h4
+                  className="text-xl sm:text-2xl font-cinzel-decorative mb-6 text-center md:text-left"
+                  style={silverGradientStyle}
+                >
                   Point of Contacts
                 </h4>
                 <div className="grid grid-cols-1 gap-4">
@@ -796,10 +880,10 @@ vibe — the stage is yours to conquer!
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 3.6 + index * 0.1, duration: 0.5 }}
-                      whileHover={{ 
+                      whileHover={{
                         y: -5,
                         boxShadow: "0 10px 30px rgba(192, 192, 192, 0.2)",
-                        transition: { duration: 0.3 }
+                        transition: { duration: 0.3 },
                       }}
                       className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-4 sm:p-6 rounded-xl border border-white/10 hover:border-white/30 transition-all"
                     >
@@ -808,26 +892,39 @@ vibe — the stage is yours to conquer!
                           <span className="text-xl sm:text-2xl">👤</span>
                         </div>
                         <div className="flex-1">
-                          <h5 className="text-base sm:text-lg font-bold mb-1" style={silverGradientStyle}>
+                          <h5
+                            className="text-base sm:text-lg font-cinzel-decorative mb-1"
+                            style={silverGradientStyle}
+                          >
                             {poc.name}
                           </h5>
-                          <p className="text-xs sm:text-sm text-gray-400 italic mb-2">{poc.role}</p>
+                          <p className="text-xs text-gray-400 font-cinzel-decorative-bold mb-2">
+                            {poc.role}
+                          </p>
                           <div className="space-y-1">
-                            <a 
+                            <a
                               href={`tel:${poc.phone}`}
                               className="flex items-center justify-center sm:justify-start gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors"
                             >
-                              <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              <svg
+                                className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
                                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                               </svg>
                               <span className="break-all">{poc.phone}</span>
                             </a>
                             {poc.email && (
-                              <a 
+                              <a
                                 href={`mailto:${poc.email}`}
                                 className="flex items-center justify-center sm:justify-start gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors"
                               >
-                                <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <svg
+                                  className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
+                                >
                                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                                 </svg>
@@ -852,27 +949,25 @@ vibe — the stage is yours to conquer!
             >
               <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <p className="text-gray-400 text-xs sm:text-sm">
-                  © 2025 <span style={silverGradientStyle}>Cadence</span> - A flagship event by{" "}
+                  © 2025 <span style={silverGradientStyle}>Cadence</span> - A
+                  flagship event by{" "}
                   <span style={silverGradientStyle}>Resonance, HITK</span>
                 </p>
                 <div className="flex items-center gap-2">
                   <motion.span
-                    animate={{ 
+                    animate={{
                       scale: [1, 1.2, 1],
-                      rotate: [0, 10, -10, 0]
+                      rotate: [0, 10, -10, 0],
                     }}
-                    transition={{ 
+                    transition={{
                       duration: 2,
                       repeat: Infinity,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
                     }}
                     className="text-xl sm:text-2xl"
                   >
                     🎵
                   </motion.span>
-                  <p className="text-gray-400 text-xs sm:text-sm">
-                    Made with <span className="text-red-500">♥</span> by the Resonance Tech Team
-                  </p>
                 </div>
               </div>
             </motion.div>
